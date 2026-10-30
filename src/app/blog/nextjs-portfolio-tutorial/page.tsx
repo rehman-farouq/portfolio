@@ -12,32 +12,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Next.js Portfolio Tutorial 2026 | Build Professional Portfolio Website | React, TypeScript, Tailwind CSS",
-  description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.js 16, React, TypeScript, Tailwind CSS, Framer Motion animations, responsive design, contact forms, and deployment. Step-by-step guide for developers.",
+  title: "Next.js Portfolio Tutorial 2026 | Rehman Farouq",
+  description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.js 16, React, TypeScript, Tailwind CSS, Framer Motion…",
   keywords: "Next.js portfolio tutorial 2026, build portfolio website Next.js, Next.js 16 tutorial, React portfolio tutorial, TypeScript portfolio, Tailwind CSS portfolio, Next.js developer portfolio, portfolio website tutorial, Next.js animations, Framer Motion portfolio, responsive portfolio design, Next.js contact form, portfolio deployment, web development tutorial, frontend portfolio, developer portfolio website",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Next.js Portfolio Tutorial 2026 | Build Professional Portfolio Website | React, TypeScript, Tailwind CSS",
-    description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.js 16, React, TypeScript, Tailwind CSS, Framer Motion animations, and deployment.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Next.js Portfolio Tutorial 2026 | Rehman Farouq",
+    description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.js 16, React, TypeScript, Tailwind CSS, Framer Motion…",
     url: "https://rehmanfarouq.site/blog/nextjs-portfolio-tutorial",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/nextjs-portfolio-tutorial/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Next.js Portfolio Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Next.js Portfolio Tutorial 2026 | Build Professional Portfolio Website",
     description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.js 16, React, TypeScript, Tailwind CSS, and animations.",
-    images: ["https://rehmanfarouq.site/blog/nextjs-portfolio-tutorial/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

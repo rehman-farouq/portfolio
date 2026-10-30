@@ -12,31 +12,24 @@ const getYesterdayDate = () => {
 
 export const metadata: Metadata = {
   title: "Git Best Practices 2026 | Complete Version Control Guide",
-  description: "Master Git best practices for teams. Learn branching strategies, commit conventions, code review workflows, Git hooks, and advanced Git techniques for professional development.",
+  description: "Master Git best practices for teams. Learn branching strategies, commit conventions, code review workflows, Git hooks, and advanced Git techniques for…",
   keywords: "Git best practices, version control, branching strategy, Git workflow, commit conventions, code review, Git hooks, Git commands, team collaboration, Git 2026",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Git Best Practices 2026 | Complete Version Control Guide",
     description: "Complete guide to Git best practices for professional development teams.",
     url: "https://rehmanfarouq.site/blog/git-best-practices",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/git-best-practices/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Git Best Practices Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Git Best Practices 2026",
     description: "Master Git workflows, branching strategies, and team collaboration best practices.",
-    images: ["https://rehmanfarouq.site/blog/git-best-practices/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

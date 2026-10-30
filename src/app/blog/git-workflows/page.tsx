@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Git Workflows 2026 | GitFlow, Trunk-Based Development & Best Practices",
+  title: "Git Workflows 2026 | Rehman Farouq",
   description: "Master Git workflows including GitFlow, trunk-based development, feature branch workflow, and best practices for team collaboration and version control.",
   keywords: "Git workflows, GitFlow, trunk-based development, feature branch workflow, Git best practices, version control, team collaboration, Git 2026",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Git Workflows 2026 | GitFlow, Trunk-Based Development & Best Practices",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Git Workflows 2026 | Rehman Farouq",
     description: "Complete guide to Git workflows with practical examples and best practices.",
     url: "https://rehmanfarouq.site/blog/git-workflows",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/git-workflows/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Git Workflows Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Git Workflows 2026",
     description: "Master Git workflows including GitFlow and trunk-based development.",
-    images: ["https://rehmanfarouq.site/blog/git-workflows/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

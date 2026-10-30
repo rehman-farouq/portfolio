@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Next.js 15 Features 2026 | Server Actions, Partial Prerendering & More",
-  description: "Explore Next.js 15 features including server actions, partial prerendering, improved app router, enhanced performance, and new developer experience improvements.",
+  title: "Next.js 15 Features 2026 | Rehman Farouq",
+  description: "Explore Next.js 15 features including server actions, partial prerendering, improved app router, enhanced performance, and new developer experience…",
   keywords: "Next.js 15 features, server actions, partial prerendering, Next.js app router, Next.js performance, Next.js 2026, React Server Components, Next.js tutorial",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Next.js 15 Features 2026 | Server Actions, Partial Prerendering & More",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Next.js 15 Features 2026 | Rehman Farouq",
     description: "Complete guide to Next.js 15 features with practical examples and best practices.",
     url: "https://rehmanfarouq.site/blog/nextjs-15-features",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/nextjs-15-features/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Next.js 15 Features Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Next.js 15 Features 2026",
     description: "Explore Next.js 15 features including server actions and partial prerendering.",
-    images: ["https://rehmanfarouq.site/blog/nextjs-15-features/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

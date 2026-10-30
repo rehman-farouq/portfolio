@@ -1,6 +1,3 @@
-'use client'
-
-import { useEffect } from 'react'
 import { generateStructuredData, generateToolHeadings, generateToolIntroduction } from '@/utils/seo-generator'
 
 interface ToolSEOProps {
@@ -11,24 +8,18 @@ interface ToolSEOProps {
 }
 
 export default function ToolSEO({ toolId, toolName, toolDescription, useCases }: ToolSEOProps) {
-  useEffect(() => {
-    // Add structured data to head
-    const structuredData = generateStructuredData(toolId, toolName, toolDescription)
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.text = JSON.stringify(structuredData)
-    document.head.appendChild(script)
-
-    return () => {
-      document.head.removeChild(script)
-    }
-  }, [toolId, toolName, toolDescription])
+  // Rendered in the server HTML (not injected client-side) so crawlers always see it
+  const structuredData = generateStructuredData(toolId, toolName, toolDescription)
 
   const headings = generateToolHeadings(toolName, toolDescription)
   const introduction = generateToolIntroduction(toolName, toolDescription, useCases)
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* SEO-optimized introduction */}
       <div className="mb-8">
         <p className="text-gray-600 dark:text-gray-400 leading-relaxed">

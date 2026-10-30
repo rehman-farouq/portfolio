@@ -107,9 +107,9 @@ const LoremIpsumTool = () => {
         <div className="w-16 h-16 bg-gradient-to-r from-gray-500 to-slate-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
           <FileText size={32} />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           Lorem Ipsum Generator
-        </h1>
+        </h2>
         <p className="text-gray-600 dark:text-gray-400">
           Generate dummy text for design and development projects
         </p>

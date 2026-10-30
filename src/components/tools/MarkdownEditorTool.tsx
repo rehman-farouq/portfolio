@@ -41,7 +41,7 @@ function hello() {
     // Headers
     html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>')
     html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>')
-    html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    html = html.replace(/^# (.*$)/gim, '<h2>$1</h2>')
     
     // Bold
     html = html.replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')

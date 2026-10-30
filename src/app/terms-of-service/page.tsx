@@ -4,10 +4,11 @@ import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Rehman Farouq Portfolio | Website Usage Terms & Conditions",
-  description: "Terms of service for Rehman Farouq's portfolio website. Legal terms and conditions for using our portfolio, contact services, and developer tools. Read our usage guidelines and policies.",
+  title: "Terms of Service | Rehman Farouq",
+  description: "Terms of service for Rehman Farouq's portfolio website. Legal terms and conditions for using our portfolio, contact services, and developer tools.",
   keywords: "terms of service, website terms, usage terms, legal terms, portfolio terms, contact terms, developer tools terms, service agreement, website conditions, user agreement",
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Terms of Service | Rehman Farouq Portfolio",
     description: "Terms and conditions for using our portfolio website and services.",
     url: "https://rehmanfarouq.site/terms-of-service",
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     siteName: "Rehman Farouq Portfolio",
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Terms of Service | Rehman Farouq Portfolio",
     description: "Terms and conditions for using our portfolio website and services.",

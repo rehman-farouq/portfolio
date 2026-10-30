@@ -1,6 +1,7 @@
 "use client";
 
 import { Award, Clock, MapPin, TrendingUp, Users } from "lucide-react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Counter from "@/components/ui/Counter";
 
@@ -111,9 +112,14 @@ const About = () => {
 
             <div className="grid gap-3 sm:grid-cols-2">
               {stats.map((stat, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="rounded-2xl border border-slate-200/70 bg-slate-50/70 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white dark:border-slate-700/60 dark:bg-slate-900/70 dark:hover:bg-slate-800/70"
+                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-2xl border border-slate-200/70 bg-slate-50/70 p-4 shadow-sm hover:bg-white dark:border-slate-700/60 dark:bg-slate-900/70 dark:hover:bg-slate-800/70"
                 >
                   <div className="mb-2 flex items-center gap-2 text-blue-500">
                     {stat.icon}
@@ -128,7 +134,7 @@ const About = () => {
                   <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
                     {stat.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -152,9 +158,11 @@ const About = () => {
                   <div className="mb-2 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800">
-                        <img
+                        <Image
                           src={tech.image}
                           alt={tech.name}
+                          width={20}
+                          height={20}
                           className="h-5 w-5 object-contain"
                         />
                       </div>
@@ -167,9 +175,12 @@ const About = () => {
                     </span>
                   </div>
                   <div className="h-2.5 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-800">
-                    <div
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${tech.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1.1, delay: 0.15 + index * 0.08, ease: [0.22, 1, 0.36, 1] }}
                       className={`h-full rounded-full bg-linear-to-r ${tech.color}`}
-                      style={{ width: `${tech.level}%` }}
                     />
                   </div>
                 </div>

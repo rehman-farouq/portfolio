@@ -12,32 +12,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Flutter Interview Questions 2026 | Top 50 Questions with Answers | Developer Job Preparation",
-  description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation, performance, architecture, and advanced concepts. Prepare for Flutter developer jobs with detailed explanations.",
+  title: "Flutter Interview Questions 2026 | Rehman Farouq",
+  description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation…",
   keywords: "Flutter interview questions 2026, Flutter developer interview, Flutter job preparation, Flutter interview questions and answers, Flutter widgets interview, Flutter state management interview, Flutter navigation interview, Flutter performance questions, Flutter architecture interview, mobile developer interview, Flutter developer jobs, Flutter technical interview, Flutter coding interview, Flutter interview tips, Flutter career guide",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Flutter Interview Questions 2026 | Top 50 Questions with Answers | Developer Job Preparation",
-    description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation, performance, architecture, and advanced concepts.",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Flutter Interview Questions 2026 | Rehman Farouq",
+    description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation…",
     url: "https://rehmanfarouq.site/blog/flutter-interview-questions",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/flutter-interview-questions/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Flutter Interview Questions Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Flutter Interview Questions 2026 | Top 50 Questions with Answers",
-    description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation, and advanced concepts.",
-    images: ["https://rehmanfarouq.site/blog/flutter-interview-questions/twitter-image.jpg"],
+    description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation, and…",
     creator: "@rehmanfarouq",
   },
   robots: {

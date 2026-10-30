@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Web Accessibility (a11y) 2026 | ARIA, Keyboard Navigation & Best Practices",
+  title: "Web Accessibility (a11y) 2026 | Rehman Farouq",
   description: "Master web accessibility with ARIA, keyboard navigation, semantic HTML, and WCAG compliance. Build inclusive web applications that work for everyone.",
   keywords: "web accessibility, a11y, ARIA, keyboard navigation, WCAG, semantic HTML, inclusive design, screen readers, accessibility testing, web development",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Web Accessibility (a11y) 2026 | ARIA, Keyboard Navigation & Best Practices",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Web Accessibility (a11y) 2026 | Rehman Farouq",
     description: "Complete guide to web accessibility with practical examples and best practices.",
     url: "https://rehmanfarouq.site/blog/web-accessibility-a11y",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/web-accessibility-a11y/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Web Accessibility Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Web Accessibility (a11y) 2026",
     description: "Master web accessibility with ARIA, keyboard navigation, and best practices.",
-    images: ["https://rehmanfarouq.site/blog/web-accessibility-a11y/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

@@ -1306,37 +1306,31 @@ export function generateToolSEO(toolId: string, toolName: string): Metadata {
     TOOL_KEYWORDS[toolId as keyof typeof TOOL_KEYWORDS] ||
     TOOL_KEYWORDS['text-converter']
 
-  // Build a rich 20-keyword title (pipe-separated)
-  const title = keywords.join(' | ')
+  // Clean, human-readable title (<= ~60 chars) instead of a 20-keyword pipe list
+  const title = `Free ${toolName} Online | Rehman Farouq`
 
-  // Description uses first 10 keywords in natural flow
-  const descKeywords = keywords.slice(0, 10).join(', ')
+  // Description: tool summary only (trimmed to Google's ~160 char snippet length)
+  const rawDesc = `${toolInfo.description} Free, fast and private - runs in your browser.`
+  const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...' : rawDesc
 
   return {
     title,
-    description: `${toolInfo.description} ${descKeywords}`,
-    keywords: keywords.join(', '),
+    description,
+    keywords: keywords.slice(0, 10).join(', '),
     authors: [{ name: 'Rehman Farouq' }],
     openGraph: {
       title,
-      description: `${toolInfo.description} ${descKeywords}`,
+      description,
       url: `https://rehmanfarouq.site/tools/${toolId}`,
       type: 'website',
       siteName: 'Rehman Farouq Tools',
-      images: [
-        {
-          url: `https://rehmanfarouq.site/images/${toolId}-og.png`,
-          width: 1200,
-          height: 630,
-          alt: `${toolName} Tool – ${keywords.slice(0, 5).join(' | ')}`
-        }
-      ]
+      images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: `${toolName} – free online tool` }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      description: `${toolInfo.description} ${descKeywords}`,
-      images: [`https://rehmanfarouq.site/images/${toolId}-og.png`],
+      description,
+      images: ['/opengraph-image'],
       creator: '@rehmanfarouq'
     },
     alternates: {
@@ -1473,18 +1467,8 @@ export function generateStructuredData(
       name: 'Rehman Farouq Tools',
       url: 'https://rehmanfarouq.site'
     },
-    datePublished: new Date().toISOString(),
-    dateModified: new Date().toISOString(),
     inLanguage: 'en-US',
     isAccessibleForFree: true,
-    browserRequirements: 'Requires JavaScript',
-    screenshot: `https://rehmanfarouq.site/images/${toolId}-og.png`,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: 1000,
-      bestRating: '5',
-      worstRating: '1'
-    }
+    browserRequirements: 'Requires JavaScript'
   }
 }

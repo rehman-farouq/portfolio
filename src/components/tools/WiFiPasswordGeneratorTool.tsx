@@ -69,9 +69,9 @@ const WiFiPasswordGeneratorTool = () => {
         <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
           <Wifi size={32} />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           WiFi Password Generator
-        </h1>
+        </h2>
         <p className="text-gray-600 dark:text-gray-400">
           Generate secure passwords for your WiFi network with WPA2/WPA3 compatibility
         </p>

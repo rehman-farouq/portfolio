@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useSyncExternalStore } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -19,30 +19,26 @@ export const useTheme = () => {
   return context
 }
 
+// The <html> class is the single source of truth (set before first paint by the inline script in layout.tsx).
+const subscribe = (cb: () => void) => {
+  const observer = new MutationObserver(cb)
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+  return () => observer.disconnect()
+}
+const getSnapshot = (): Theme => (document.documentElement.classList.contains('light') ? 'light' : 'dark')
+const getServerSnapshot = (): Theme => 'dark'
+
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('dark')
-
-  useEffect(() => {
-    // Check for saved theme preference or default to dark
-    const savedTheme = localStorage.getItem('theme') as Theme
-    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-      setTheme(savedTheme)
-    } else {
-      // Check system preference
-      const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      setTheme(systemPreference)
-    }
-  }, [])
-
-  useEffect(() => {
-    // Apply theme to document
-    document.documentElement.classList.remove('light', 'dark')
-    document.documentElement.classList.add(theme)
-    localStorage.setItem('theme', theme)
-  }, [theme])
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark')
+    const next: Theme = theme === 'dark' ? 'light' : 'dark'
+    const root = document.documentElement.classList
+    root.remove('light', 'dark')
+    root.add(next)
+    try {
+      localStorage.setItem('theme', next)
+    } catch {}
   }
 
   return (

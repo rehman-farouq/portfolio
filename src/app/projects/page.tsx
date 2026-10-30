@@ -7,21 +7,23 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
   title:
-    "Portfolio Projects | Flutter Apps, Web Applications | Full Stack Developer Showcase | React, Next.js",
+    "Projects | Rehman Farouq – Flutter & Next.js Apps",
   description:
-    "Explore Rehman Farouq's complete portfolio of projects. Discover innovative Flutter mobile apps, Next.js web applications, React projects, and full stack development solutions. View case studies, live demos, and GitHub repositories of professional work.",
+    "Explore Rehman Farouq's complete portfolio of projects. Discover innovative Flutter mobile apps, Next.js web applications, React projects, and full stack…",
   keywords:
     "portfolio projects, Flutter apps showcase, Next.js projects, React applications, full stack developer portfolio, web development projects, mobile app portfolio, software projects showcase, development portfolio, programming projects, tech portfolio, developer work showcase, project case studies, live demo projects, GitHub portfolio",
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title:
-      "Portfolio Projects | Flutter Apps, Web Applications | Full Stack Developer Showcase | React, Next.js",
+      "Projects | Rehman Farouq – Flutter & Next.js Apps",
     description:
-      "Explore Rehman Farouq's complete portfolio of projects. Discover innovative Flutter mobile apps, Next.js web applications, React projects, and full stack development solutions with live demos.",
+      "Explore Rehman Farouq's complete portfolio of projects. Discover innovative Flutter mobile apps, Next.js web applications, React projects, and full stack…",
     url: "https://rehmanfarouq.site/projects",
     type: "website",
     siteName: "Rehman Farouq Portfolio",
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title:
       "Portfolio Projects | Flutter Apps, Web Applications | Full Stack Developer Showcase",
@@ -70,6 +72,7 @@ export default function ProjectsPage() {
 
       {/* Main Content */}
       <main className="flex-grow">
+        <h1 className="sr-only">Projects by Rehman Farouq – Flutter &amp; Next.js Apps</h1>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <AnimatedSection delay={200}>
             <Projects />

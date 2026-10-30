@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Docker Compose for Development 2026 | Multi-Container Setups & Best Practices",
-  description: "Master Docker Compose for development environments. Learn multi-container setups, development workflows, service orchestration, and best practices for local development.",
+  title: "Docker Compose for Development 2026 | Rehman Farouq",
+  description: "Master Docker Compose for development environments. Learn multi-container setups, development workflows, service orchestration, and best practices for local…",
   keywords: "Docker Compose, Docker development, multi-container setups, Docker Compose tutorial, container orchestration, development environment, Docker 2026, DevOps",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Docker Compose for Development 2026 | Multi-Container Setups & Best Practices",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Docker Compose for Development 2026 | Rehman Farouq",
     description: "Complete guide to Docker Compose for development with practical examples and best practices.",
     url: "https://rehmanfarouq.site/blog/docker-compose-development",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/docker-compose-development/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Docker Compose Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Docker Compose for Development 2026",
     description: "Master Docker Compose for development environments with practical examples.",
-    images: ["https://rehmanfarouq.site/blog/docker-compose-development/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

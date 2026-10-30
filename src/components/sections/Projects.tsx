@@ -1,7 +1,9 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
-import FadeIn from "@/components/ui/FadeIn";
+import { ExternalLink, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { SectionHeading, Stagger, StaggerItem, Reveal } from "@/components/motion/Reveal";
+import TiltCard from "@/components/ui/TiltCard";
 
 const Projects = () => {
   const projects = [
@@ -117,46 +119,28 @@ const Projects = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20">
-          <FadeIn direction="up">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-up">
-              Featured{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Projects
-              </span>
-            </h2>
-          </FadeIn>
-          <FadeIn direction="up" delay={200}>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 animate-slide-right delay-200"></div>
-          </FadeIn>
-          <FadeIn direction="up" delay={400}>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg animate-fade-up delay-300">
-              Explore my latest work showcasing expertise in Flutter and Next.js
-              development
-            </p>
-          </FadeIn>
-        </div>
+        <SectionHeading
+          title="Featured"
+          highlight="Projects"
+          subtitle="Explore my latest work showcasing expertise in Flutter and Next.js development"
+        />
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <Stagger className="grid gap-8 lg:grid-cols-2" gap={0.12}>
           {projects.map((project, index) => (
-            <FadeIn
-              key={index}
-              direction="up"
-              delay={index * 200}
-              className="animate-fade-scale"
-            >
+            <StaggerItem key={index} className="h-full">
+              <TiltCard className="h-full rounded-2xl">
               <div
-                className={`group relative overflow-hidden bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:scale-105 hover:border-gray-600/50 transform hover:-translate-y-2 ${
+                className={`group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white/80 p-8 shadow-lg shadow-slate-900/5 backdrop-blur-sm transition-shadow duration-500 hover:shadow-2xl hover:shadow-blue-500/15 dark:border-gray-700/50 dark:bg-gray-800/50 ${
                   project.featured ? "ring-2 ring-blue-500/50" : ""
                 }`}
               >
                 {/* Top badges: project type (left) and featured (right) */}
                 <div className="flex justify-between items-start mb-4">
-                  <span className="bg-gray-700/60 backdrop-blur-sm text-gray-300 text-xs font-medium px-3 py-1 rounded-full">
+                  <span className="bg-slate-100 dark:bg-gray-700/60 backdrop-blur-sm text-slate-600 dark:text-gray-300 text-xs font-medium px-3 py-1 rounded-full">
                     {project.projectType}
                   </span>
                   {project.featured && (
-                    <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1 animate-bounce-in delay-200">
+                    <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
                       Featured
                     </span>
                   )}
@@ -164,13 +148,13 @@ const Projects = () => {
 
                 {/* Project header */}
                 <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300 animate-slide-left delay-100">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 leading-relaxed text-lg animate-fade-up delay-200">
+                  <p className="text-slate-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
                     {project.description}
                   </p>
-                  <p className="text-gray-400 text-sm mt-3 flex items-center gap-2 animate-fade-up delay-300">
+                  <p className="text-slate-500 dark:text-gray-400 text-sm mt-3 flex items-center gap-2">
                     <span>👤</span> {project.client}
                   </p>
                 </div>
@@ -180,8 +164,8 @@ const Projects = () => {
                   {project.techStack.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-300 rounded-lg text-sm font-medium border border-blue-600/30 hover:border-blue-500/50 transition-all duration-300 hover:scale-110 animate-fade-up"
-                      style={{ animationDelay: `${200 + techIndex * 50}ms` }}
+                      className="px-3 py-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium border border-blue-600/30 hover:border-blue-500/50 transition-colors duration-300"
+                     
                     >
                       {tech}
                     </span>
@@ -194,7 +178,7 @@ const Projects = () => {
                     href={project.liveDemo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group/link flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-all duration-300 hover:bg-blue-600/10 px-4 py-2 rounded-lg transform hover:scale-110 ${
+                    className={`group/link flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-500 font-medium transition-colors duration-300 hover:bg-blue-600/10 px-4 py-2 rounded-lg ${
                       !project.liveDemo ? "pointer-events-none opacity-50" : ""
                     }`}
                   >
@@ -211,23 +195,21 @@ const Projects = () => {
                   className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}
                 ></div>
               </div>
-            </FadeIn>
+              </TiltCard>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
         {/* View all projects button */}
-        <div className="text-center mt-12">
-          <button className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-full font-semibold transition-all duration-500 flex items-center gap-3 mx-auto shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105">
-            <span className="relative z-10 flex items-center gap-3">
-              View All Projects
-              <ExternalLink
-                className="group-hover:translate-x-1 transition-transform duration-300"
-                size={20}
-              />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </button>
-        </div>
+        <Reveal className="mt-12 text-center">
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-blue-500/25"
+          >
+            View All Projects
+            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={20} />
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

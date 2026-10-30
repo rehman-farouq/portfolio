@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Docker for Developers 2026 | Complete Containerization Guide",
-  description: "Master Docker containerization for developers. Learn Docker fundamentals, Dockerfile best practices, Docker Compose, container orchestration, and deployment strategies for modern applications.",
+  title: "Docker for Developers 2026 | Rehman Farouq",
+  description: "Master Docker containerization for developers. Learn Docker fundamentals, Dockerfile best practices, Docker Compose, container orchestration, and deployment…",
   keywords: "Docker tutorial, containerization, Docker Compose, Dockerfile, container orchestration, Docker deployment, DevOps, microservices, Docker best practices, container security",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Docker for Developers 2026 | Complete Containerization Guide",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Docker for Developers 2026 | Rehman Farouq",
     description: "Complete guide to Docker containerization for developers with practical examples.",
     url: "https://rehmanfarouq.site/blog/docker-for-developers",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/docker-for-developers/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Docker for Developers Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Docker for Developers 2026",
     description: "Master Docker containerization from basics to advanced deployment strategies.",
-    images: ["https://rehmanfarouq.site/blog/docker-for-developers/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

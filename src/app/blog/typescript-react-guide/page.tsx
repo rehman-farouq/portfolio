@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "TypeScript for React Developers 2026 | Complete Guide with Examples",
-  description: "Master TypeScript in React development. Learn interfaces, generics, props typing, hooks, and advanced TypeScript patterns for building type-safe React applications.",
+  title: "TypeScript for React Developers 2026 | Rehman Farouq",
+  description: "Master TypeScript in React development. Learn interfaces, generics, props typing, hooks, and advanced TypeScript patterns for building type-safe React…",
   keywords: "TypeScript React tutorial, React TypeScript guide, TypeScript interfaces, React props typing, TypeScript generics, type-safe React, TypeScript hooks, React TypeScript best practices",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "TypeScript for React Developers 2026 | Complete Guide",
     description: "Complete guide to TypeScript in React with practical examples and best practices.",
     url: "https://rehmanfarouq.site/blog/typescript-react-guide",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/typescript-react-guide/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "TypeScript React Guide",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "TypeScript for React Developers 2026",
     description: "Complete guide to TypeScript in React with practical examples.",
-    images: ["https://rehmanfarouq.site/blog/typescript-react-guide/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

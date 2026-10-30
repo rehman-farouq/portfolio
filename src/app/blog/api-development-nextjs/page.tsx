@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "API Development with Next.js 2026 | Build RESTful & GraphQL APIs",
-  description: "Complete guide to building APIs with Next.js. Learn RESTful and GraphQL API development, route handlers, middleware, authentication, database integration, and best practices for scalable APIs.",
+  title: "API Development with Next.js 2026 | Rehman Farouq",
+  description: "Complete guide to building APIs with Next.js. Learn RESTful and GraphQL API development, route handlers, middleware, authentication, database integration…",
   keywords: "Next.js API development, RESTful API, GraphQL API, Next.js route handlers, API middleware, API authentication, database integration, API best practices, server-side development, Next.js 2026",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "API Development with Next.js 2026 | Build RESTful & GraphQL APIs",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "API Development with Next.js 2026 | Rehman Farouq",
     description: "Complete guide to building APIs with Next.js including RESTful and GraphQL implementations.",
     url: "https://rehmanfarouq.site/blog/api-development-nextjs",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/api-development-nextjs/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "API Development with Next.js Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "API Development with Next.js 2026",
     description: "Build scalable RESTful and GraphQL APIs with Next.js route handlers and best practices.",
-    images: ["https://rehmanfarouq.site/blog/api-development-nextjs/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

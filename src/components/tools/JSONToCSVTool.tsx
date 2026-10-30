@@ -151,9 +151,9 @@ const JSONToCSVTool = () => {
         <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
           <FileJson size={32} />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           JSON to CSV Converter
-        </h1>
+        </h2>
         <p className="text-gray-600 dark:text-gray-400">
           Convert JSON data to CSV format for spreadsheet applications
         </p>

@@ -3,6 +3,7 @@
 import { Github, Linkedin, Mail, ArrowUp, Heart, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Stagger, StaggerItem, Reveal } from "@/components/motion/Reveal";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -39,10 +40,10 @@ const Footer = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-3 gap-12">
+        <Stagger className="grid gap-12 lg:grid-cols-3" gap={0.14}>
           {/* Brand */}
-          <div className="space-y-6 animate-fade-up delay-100">
-            <div className="animate-slide-up delay-200">
+          <StaggerItem className="space-y-6">
+            <div className="animate-slide-up">
               <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
                 REHMAN FAROUQ
               </h3>
@@ -53,7 +54,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex gap-4 animate-slide-up delay-300">
+            <div className="flex gap-4">
               <a
                 href="https://github.com/Rehman532"
                 target="_blank"
@@ -77,10 +78,10 @@ const Footer = () => {
                 <Mail size={18} />
               </a>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Essential Links */}
-          <div className="animate-fade-up delay-200">
+          <StaggerItem>
             <h4 className="text-xl font-semibold text-white mb-6">
               Essential Links
             </h4>
@@ -113,10 +114,10 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </StaggerItem>
 
           {/* Contact Info - ONLY EMAIL CLICKABLE */}
-          <div className="animate-fade-up delay-300">
+          <StaggerItem>
             <h4 className="text-xl font-semibold text-white mb-6">
               Contact Info
             </h4>
@@ -141,14 +142,14 @@ const Footer = () => {
               <div className="group flex items-center gap-3 p-3 bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 rounded-lg transition-all duration-300 hover:bg-gray-800/50 hover:border-green-500/30 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-green-500/10">
                 <span className="text-green-400">📍</span>
                 <span className="text-gray-300 group-hover:text-white transition-colors">
-                  Tapyiala, Tehsile Kharian, District Gujrat
+                 Gujrat , Punjab , Pakistan
                 </span>
               </div>
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
 
-        <div className="mt-16 pt-8 border-t border-gray-800/50">
+        <Reveal className="mt-16 pt-8 border-t border-gray-800/50" distance={16}>
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-2 text-gray-400 text-sm">
@@ -185,7 +186,7 @@ const Footer = () => {
               <span className="text-sm font-medium">Back to top</span>
             </button>
           </div>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

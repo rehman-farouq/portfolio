@@ -20,7 +20,9 @@ import {
   SmartphoneIcon,
   Users,
 } from "lucide-react";
-import FadeIn from "@/components/ui/FadeIn";
+import { SectionHeading, Stagger, StaggerItem, Reveal } from "@/components/motion/Reveal";
+import TiltCard from "@/components/ui/TiltCard";
+import { motion } from "framer-motion";
 
 const Skills = () => {
   const skills = [
@@ -405,114 +407,84 @@ const Skills = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16 lg:mb-20">
-          <FadeIn direction="up">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
-              Skills &{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Expertise
-              </span>
-            </h2>
-            <div className="w-16 sm:w-20 lg:w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
-              Comprehensive skill set covering mobile development, web
-              technologies, and modern development practices
-            </p>
-          </FadeIn>
-        </div>
+        <SectionHeading
+          title="Skills &"
+          highlight="Expertise"
+          subtitle="Comprehensive skill set covering mobile development, web technologies, and modern development practices"
+        />
 
         <div className="space-y-12 sm:space-y-16">
-          {categories.map((category, catIndex) => (
-            <FadeIn
-              key={category}
-              direction="up"
-              delay={catIndex * 200}
-              className="animate-fade-up"
-            >
-              <div className="space-y-6 sm:space-y-8">
-                <div className="flex items-center gap-3 sm:gap-4 animate-slide-left delay-100">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-xl flex items-center justify-center hover:scale-110 hover:rotate-12 transition-all duration-300">
-                    {getCategoryIcon(category)}
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white capitalize hover:text-blue-400 transition-colors duration-300">
-                    {category}{" "}
-                    <span className="text-gray-400 font-normal">
-                      Technologies
-                    </span>
-                  </h3>
-                </div>
+          {categories.map((category) => (
+            <div key={category} className="space-y-6 sm:space-y-8">
+              <Reveal direction="right" distance={24} className="flex items-center gap-3 sm:gap-4">
+                <motion.div
+                  whileHover={{ rotate: 12, scale: 1.1 }}
+                  className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white/80 backdrop-blur-sm dark:border-gray-700/50 dark:bg-gray-800/50 sm:h-12 sm:w-12"
+                >
+                  {getCategoryIcon(category)}
+                </motion.div>
+                <h3 className="text-xl font-semibold capitalize text-slate-900 dark:text-white sm:text-2xl">
+                  {category}{" "}
+                  <span className="font-normal text-slate-500 dark:text-gray-400">Technologies</span>
+                </h3>
+              </Reveal>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                  {skills
-                    .filter((skill) => skill.category === category)
-                    .map((skill, index) => (
-                      <FadeIn
-                        key={index}
-                        direction="up"
-                        delay={index * 100}
-                        className="animate-fade-scale"
-                      >
-                        <div className="group relative overflow-hidden bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-4 sm:p-6 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:scale-110 hover:border-gray-600/50 transform hover:-translate-y-2">
-                          {/* Skill level indicator */}
-                          <div className="absolute top-0 left-0 w-full h-1 bg-gray-700/50">
+              <Stagger className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4" gap={0.06}>
+                {skills
+                  .filter((skill) => skill.category === category)
+                  .map((skill, index) => (
+                    <StaggerItem key={index} className="h-full">
+                      <TiltCard className="h-full rounded-2xl" max={6}>
+                        <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-md shadow-slate-900/5 backdrop-blur-sm transition-shadow duration-500 hover:shadow-xl hover:shadow-blue-500/15 dark:border-gray-700/50 dark:bg-gray-800/50 sm:p-6">
+                          <div className="flex flex-col items-center space-y-3 text-center sm:space-y-4">
                             <div
-                              className={`h-full bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out`}
-                              style={{ width: `${skill.level}%` }}
-                            ></div>
-                          </div>
-
-                          <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4">
-                            <div
-                              className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-r ${skill.color} rounded-2xl flex items-center justify-center text-white group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 shadow-lg group-hover:shadow-xl`}
+                              className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-r ${skill.color} text-white shadow-lg transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110 sm:h-16 sm:w-16`}
                             >
-                              <span className="text-sm sm:text-base">
-                                {skill.icon}
-                              </span>
+                              <span className="text-sm sm:text-base">{skill.icon}</span>
                             </div>
-                            <div className="space-y-2 w-full">
-                              <span className="text-white font-semibold text-sm sm:text-base lg:text-lg block group-hover:text-blue-400 transition-colors duration-300 animate-fade-up delay-100">
+                            <div className="w-full space-y-2">
+                              <span className="block text-sm font-semibold text-slate-900 transition-colors duration-300 group-hover:text-blue-500 dark:text-white sm:text-base lg:text-lg">
                                 {skill.name}
                               </span>
                               <div className="flex items-center gap-2">
-                                <div className="flex-1 bg-gray-700/50 rounded-full h-1.5 sm:h-2 overflow-hidden">
-                                  <div
-                                    className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 ease-out`}
-                                    style={{ width: `${skill.level}%` }}
-                                  ></div>
+                                <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-slate-200 dark:bg-gray-700/50 sm:h-2">
+                                  <motion.div
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: `${skill.level}%` }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 1, delay: 0.2 + index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+                                    className={`h-full rounded-full bg-gradient-to-r ${skill.color}`}
+                                  />
                                 </div>
-                                <span className="text-gray-400 text-xs sm:text-sm font-medium bg-gray-700/50 px-2 sm:px-3 py-1 rounded-full group-hover:bg-gray-600/50 transition-colors duration-300 whitespace-nowrap animate-fade-up delay-200">
+                                <span className="whitespace-nowrap rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-600 dark:bg-gray-700/50 dark:text-gray-400 sm:px-3 sm:text-sm">
                                   {skill.level}%
                                 </span>
                               </div>
                             </div>
                           </div>
-
-                          {/* Hover effect overlay */}
                           <div
-                            className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}
-                          ></div>
+                            aria-hidden
+                            className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 transition-opacity duration-500 group-hover:opacity-[0.06]`}
+                          />
                         </div>
-                      </FadeIn>
-                    ))}
-                </div>
-              </div>
-            </FadeIn>
+                      </TiltCard>
+                    </StaggerItem>
+                  ))}
+              </Stagger>
+            </div>
           ))}
         </div>
-      </div>
 
-      {/* Skills summary */}
-      <FadeIn direction="up" delay={800}>
-        <div className="mt-16 sm:mt-20 text-center">
-          <div className="inline-flex items-center gap-3 sm:gap-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/30 rounded-full px-4 sm:px-6 py-2 sm:py-3 hover:scale-105 transition-transform duration-300">
-            <Rocket className="text-blue-400" size={20} />
-            <span className="text-blue-300 font-medium text-sm sm:text-base">
-              {skills.length}+ Technologies mastered across {categories.length}{" "}
-              categories
+        {/* Skills summary */}
+        <Reveal className="mt-16 text-center sm:mt-20">
+          <div className="inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-gradient-to-r from-blue-600/10 to-purple-600/10 px-4 py-2 backdrop-blur-sm sm:gap-4 sm:px-6 sm:py-3">
+            <Rocket className="text-blue-500" size={20} />
+            <span className="text-sm font-medium text-blue-700 dark:text-blue-300 sm:text-base">
+              {skills.length}+ Technologies mastered across {categories.length} categories
             </span>
           </div>
-        </div>
-      </FadeIn>
+        </Reveal>
+      </div>
     </section>
   );
 };

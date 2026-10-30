@@ -85,9 +85,9 @@ const EmailValidatorTool = () => {
         <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-green-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
           <Mail size={32} />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           Email Validator
-        </h1>
+        </h2>
         <p className="text-gray-600 dark:text-gray-400">
           Validate email addresses for format, domain, and disposable email detection
         </p>

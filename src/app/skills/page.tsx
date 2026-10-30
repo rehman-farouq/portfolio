@@ -7,26 +7,28 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
   title:
-    "Technical Skills & Expertise | Full Stack Developer | Flutter, React, Next.js, TypeScript Skills",
+    "Skills & Tech Stack | Rehman Farouq",
   description:
-    "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, JavaScript, Node.js, Tailwind CSS, Git, and modern web development technologies. View skill levels and proficiency.",
+    "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, JavaScript, Node.js…",
   keywords:
     "technical skills, programming expertise, full stack developer skills, Flutter developer skills, React development expertise, Next.js proficiency, TypeScript skills, JavaScript programming, Node.js backend skills, Tailwind CSS expertise, Git version control, web development skills, mobile app development skills, programming languages, software development expertise, technical stack",
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title:
-      "Technical Skills & Expertise | Full Stack Developer | Flutter, React, Next.js, TypeScript Skills",
+      "Skills & Tech Stack | Rehman Farouq",
     description:
-      "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, JavaScript, Node.js, and modern web development technologies.",
+      "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, JavaScript, Node.js, and…",
     url: "https://rehmanfarouq.site/skills",
     type: "website",
     siteName: "Rehman Farouq Portfolio",
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title:
       "Technical Skills & Expertise | Full Stack Developer | Flutter, React, Next.js",
     description:
-      "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, and modern web development technologies.",
+      "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, and modern web development…",
   },
   robots: {
     index: true,
@@ -70,6 +72,7 @@ export default function SkillsPage() {
 
       {/* Main Content */}
       <main className="flex-grow">
+        <h1 className="sr-only">Skills &amp; Tech Stack – Rehman Farouq</h1>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <AnimatedSection delay={200}>
             <Skills />

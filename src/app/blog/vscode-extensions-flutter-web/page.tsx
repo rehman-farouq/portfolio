@@ -12,32 +12,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Top 10 VS Code Extensions for Flutter & Web Developers 2026 | Essential Tools",
-  description: "Curated list of essential VS Code extensions for Flutter and web developers. Boost productivity with Dart, Flutter, React, Next.js, Prettier, ESLint, and more must-have extensions.",
+  title: "Top 10 VS Code Extensions for Flutter & Web Developers 2026",
+  description: "Curated list of essential VS Code extensions for Flutter and web developers. Boost productivity with Dart, Flutter, React, Next.js, Prettier, ESLint, and…",
   keywords: "VS Code extensions, Flutter extensions, web development extensions, Dart VS Code, React extensions, Next.js extensions, Prettier, ESLint, developer tools, VS Code setup, productivity extensions, code editors, Flutter development, web development tools",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Top 10 VS Code Extensions for Flutter & Web Developers 2026",
     description: "Essential VS Code extensions to boost your Flutter and web development productivity.",
     url: "https://rehmanfarouq.site/blog/vscode-extensions-flutter-web",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/vscode-extensions-flutter-web/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "VS Code Extensions Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Top 10 VS Code Extensions for Flutter & Web Developers",
     description: "Essential VS Code extensions for Flutter and web development productivity.",
-    images: ["https://rehmanfarouq.site/blog/vscode-extensions-flutter-web/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

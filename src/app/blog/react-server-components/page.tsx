@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "React Server Components 2026 | Deep Dive with Examples & Best Practices",
+  title: "React Server Components 2026 | Rehman Farouq",
   description: "Master React Server Components with practical examples. Learn server-side rendering, data fetching, streaming, and how to build performant React applications.",
   keywords: "React Server Components, RSC, server-side rendering, React 2026, Next.js server components, React streaming, data fetching, performance optimization",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "React Server Components 2026 | Deep Dive with Examples & Best Practices",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "React Server Components 2026 | Rehman Farouq",
     description: "Complete guide to React Server Components with practical examples and best practices.",
     url: "https://rehmanfarouq.site/blog/react-server-components",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/react-server-components/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "React Server Components Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "React Server Components 2026",
     description: "Master React Server Components with practical examples and best practices.",
-    images: ["https://rehmanfarouq.site/blog/react-server-components/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Flutter 3.24 Updates 2026 | New Widgets, Performance Improvements & More",
+  title: "Flutter 3.24 Updates 2026 | Rehman Farouq",
   description: "Explore Flutter 3.24 updates including new widgets, performance improvements, enhanced web support, better tooling, and new platform capabilities.",
   keywords: "Flutter 3.24 updates, Flutter new widgets, Flutter performance, Flutter web support, Flutter 2026, Flutter tutorial, mobile app development, cross-platform development",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Flutter 3.24 Updates 2026 | New Widgets, Performance Improvements & More",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Flutter 3.24 Updates 2026 | Rehman Farouq",
     description: "Complete guide to Flutter 3.24 updates with practical examples and best practices.",
     url: "https://rehmanfarouq.site/blog/flutter-3-24-updates",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/flutter-3-24-updates/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Flutter 3.24 Updates Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Flutter 3.24 Updates 2026",
     description: "Explore Flutter 3.24 updates including new widgets and performance improvements.",
-    images: ["https://rehmanfarouq.site/blog/flutter-3-24-updates/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

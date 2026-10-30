@@ -7,21 +7,23 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
   title:
-    "About Rehman Farouq | Full Stack Developer | Flutter, Next.js, React Expert | Professional Profile",
+    "About Rehman Farouq | Flutter & Next.js Developer",
   description:
-    "Meet Rehman Farouq, experienced full stack developer specializing in Flutter, Next.js, React, TypeScript, and modern web technologies. Discover professional background, technical expertise, development journey, and passion for creating innovative digital solutions.",
+    "Meet Rehman Farouq, experienced full stack developer specializing in Flutter, Next.js, React, TypeScript, and modern web technologies.",
   keywords:
     "about Rehman Farouq, full stack developer profile, Flutter developer bio, Next.js developer background, React developer expertise, TypeScript specialist, web development professional, mobile app developer, software engineer profile, developer portfolio about, technical expertise, professional developer background, programming experience, development journey",
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title:
-      "About Rehman Farouq | Full Stack Developer | Flutter, Next.js, React Expert | Professional Profile",
+      "About Rehman Farouq | Flutter & Next.js Developer",
     description:
-      "Meet Rehman Farouq, experienced full stack developer specializing in Flutter, Next.js, React, TypeScript, and modern web technologies. Discover professional background and technical expertise.",
+      "Meet Rehman Farouq, experienced full stack developer specializing in Flutter, Next.js, React, TypeScript, and modern web technologies.",
     url: "https://rehmanfarouq.site/about",
     type: "profile",
     siteName: "Rehman Farouq Portfolio",
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title:
       "About Rehman Farouq | Full Stack Developer | Flutter, Next.js, React Expert",
@@ -70,6 +72,7 @@ export default function AboutPage() {
 
       {/* Main Content */}
       <main className="flex-grow">
+        <h1 className="sr-only">About Rehman Farouq – Flutter &amp; Next.js Developer</h1>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <AnimatedSection delay={200}>
             <About />

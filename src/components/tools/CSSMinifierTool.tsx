@@ -120,9 +120,9 @@ body {
         <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
           <Zap size={32} />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           CSS Minifier
-        </h1>
+        </h2>
         <p className="text-gray-600 dark:text-gray-400">
           Minify and compress CSS code for faster loading and better performance
         </p>

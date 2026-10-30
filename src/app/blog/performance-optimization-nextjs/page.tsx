@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Next.js Performance Optimization 2026 | Complete Speed Guide",
-  description: "Master Next.js performance optimization. Learn code splitting, lazy loading, image optimization, caching strategies, server components, and techniques to achieve 100/100 Lighthouse scores.",
+  title: "Next.js Performance Optimization 2026 | Rehman Farouq",
+  description: "Master Next.js performance optimization. Learn code splitting, lazy loading, image optimization, caching strategies, server components, and techniques to…",
   keywords: "Next.js performance optimization, web performance, code splitting, lazy loading, image optimization, caching, server components, Lighthouse score, Next.js 2026, web vitals",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Next.js Performance Optimization 2026 | Complete Speed Guide",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Next.js Performance Optimization 2026 | Rehman Farouq",
     description: "Complete guide to optimizing Next.js applications for maximum performance and speed.",
     url: "https://rehmanfarouq.site/blog/performance-optimization-nextjs",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/performance-optimization-nextjs/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Next.js Performance Optimization Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Next.js Performance Optimization 2026",
     description: "Achieve 100/100 Lighthouse scores with these Next.js optimization techniques.",
-    images: ["https://rehmanfarouq.site/blog/performance-optimization-nextjs/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

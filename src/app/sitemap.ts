@@ -1,167 +1,56 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
+import fs from "node:fs";
+import path from "node:path";
+
+const BASE = "https://rehmanfarouq.site";
+const APP_DIR = path.join(process.cwd(), "src", "app");
+
+/** Slugs = sub-folders that contain a page.tsx. New blog posts / tools are picked up automatically. */
+function slugsIn(section: string): { slug: string; lastModified: Date }[] {
+  const dir = path.join(APP_DIR, section);
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && fs.existsSync(path.join(dir, d.name, "page.tsx")))
+    .map((d) => ({
+      slug: d.name,
+      lastModified: fs.statSync(path.join(dir, d.name, "page.tsx")).mtime,
+    }));
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rehmanfarouq.site'
+  const staticPages: [string, number, MetadataRoute.Sitemap[number]["changeFrequency"]][] = [
+    ["", 1.0, "monthly"],
+    ["/about", 0.8, "monthly"],
+    ["/experience", 0.8, "monthly"],
+    ["/projects", 0.8, "monthly"],
+    ["/skills", 0.7, "monthly"],
+    ["/contact", 0.8, "yearly"],
+    ["/tools", 0.9, "weekly"],
+    ["/blog", 0.9, "weekly"],
+    ["/privacy-policy", 0.2, "yearly"],
+    ["/terms-of-service", 0.2, "yearly"],
+  ];
 
-  // ─── All 49 tools ─────────────────────────────────────────────────────────
-  const tools = [
-    'text-converter',
-    'password-generator',
-    'qr-generator',
-    'image-resize',
-    'json-formatter',
-    'color-converter',
-    'time-converter',
-    'url-shortener',
-    'base64-converter',
-    'unit-converter',
-    'markdown-editor',
-    'hash-generator',
-    'wifi-password-generator',
-    'css-minifier',
-    'html-encoder-decoder',
-    'json-to-csv',
-    'email-validator',
-    'age-calculator',
-    'bmi-calculator',
-    'tip-calculator',
-    'discount-calculator',
-    'fuel-cost-calculator',
-    'recipe-scaler',
-    'sleep-calculator',
-    'water-intake',
-    'calorie-calculator',
-    'phone-number-formatter',
-    'word-counter',
-    'calorie-burner',
-    'pregnancy-calculator',
-    'caffeine-calculator',
-    'grade-calculator',
-    'random-generator',
-    'timezone-converter',
-    'roman-numeral',
-    'ascii-art',
-    'password-strength',
-    'text-statistics',
-    'unit-converter-pro',
-    'file-converter',
-    'project-cost-estimator',
-    'color-palette-pro',
-    'app-vs-website',
-    'website-speed-checker',
-    'roi-calculator',
-    'credit-card-validator',
-    'loan-calculator',
-    'percentage-calculator',
-    'lorem-ipsum',
-  ]
-
-  // ─── All blog posts ────────────────────────────────────────────────────────
-  const blogPosts = [
-    'flutter-vs-nextjs',
-    'how-to-build-password-generator-react',
-    'vscode-extensions-flutter-web',
-    'react-hooks-complete-guide',
-    'typescript-react-guide',
-    'modern-css-techniques-2026',
-    'flutter-interview-questions',
-    'flutter-vs-react-native',
-    'best-flutter-packages',
-    'how-to-learn-flutter',
-    'nextjs-portfolio-tutorial',
-    'flutter-state-management',
-    'javascript-es6-features',
-    'responsive-web-design-2026',
-    'html5-css3-features',
-  ]
-
+  const now = new Date();
   return [
-    // ─── Main pages ──────────────────────────────────────────────────────────
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/experience`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/projects`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/skills`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/testimonials`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-
-    // ─── Tools section ───────────────────────────────────────────────────────
-    {
-      url: `${baseUrl}/tools`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-
-    // ─── Blog section ────────────────────────────────────────────────────────
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-
-    // ─── Individual tool pages (49 tools) ────────────────────────────────────
-    ...tools.map((tool) => ({
-      url: `${baseUrl}/tools/${tool}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
+    ...staticPages.map(([route, priority, changeFrequency]) => ({
+      url: `${BASE}${route}`,
+      lastModified: now,
+      changeFrequency,
+      priority,
     })),
-
-    // ─── Individual blog posts (15 posts) ────────────────────────────────────
-    ...blogPosts.map((slug) => ({
-      url: `${baseUrl}/blog/${slug}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
+    ...slugsIn("tools").map(({ slug, lastModified }) => ({
+      url: `${BASE}/tools/${slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
-  ]
+    ...slugsIn("blog").map(({ slug, lastModified }) => ({
+      url: `${BASE}/blog/${slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
 }

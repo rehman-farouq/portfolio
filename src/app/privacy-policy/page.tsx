@@ -4,10 +4,11 @@ import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Rehman Farouq Portfolio | Data Protection & User Privacy",
-  description: "Privacy policy for Rehman Farouq portfolio website. Learn how we collect, use, and protect your personal information. Understand your rights regarding data privacy, cookies, and user data protection.",
+  title: "Privacy Policy | Rehman Farouq",
+  description: "Privacy policy for Rehman Farouq portfolio website. Learn how we collect, use, and protect your personal information.",
   keywords: "privacy policy, data protection, user privacy, personal information, cookie policy, GDPR compliance, data security, portfolio privacy, website privacy policy, user rights, data collection",
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Privacy Policy | Rehman Farouq Portfolio",
     description: "Privacy policy for Rehman Farouq portfolio website. Learn how we protect your personal information.",
     url: "https://rehmanfarouq.site/privacy-policy",
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     siteName: "Rehman Farouq Portfolio",
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Privacy Policy | Rehman Farouq Portfolio",
     description: "Privacy policy for Rehman Farouq portfolio website. Learn how we protect your personal information.",

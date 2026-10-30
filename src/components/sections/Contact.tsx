@@ -12,7 +12,7 @@ import {
   User,
   CheckCircle,
 } from "lucide-react";
-import FadeIn from "@/components/ui/FadeIn";
+import { SectionHeading, Reveal } from "@/components/motion/Reveal";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -74,41 +74,29 @@ const Contact = () => {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20 animate-fade-up">
-          <FadeIn direction="up">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-slide-up delay-100">
-              Get In{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                Touch
-              </span>
-            </h2>
-          </FadeIn>
-          <FadeIn direction="up" delay={200}>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 animate-slide-right delay-200"></div>
-          </FadeIn>
-          <FadeIn direction="up" delay={400}>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg animate-fade-up delay-300">
-              Let's discuss your next project or collaboration opportunity
-            </p>
-          </FadeIn>
-        </div>
+        <SectionHeading
+          title="Get In"
+          highlight="Touch"
+          subtitle="Let's discuss your next project or collaboration opportunity"
+          light
+        />
 
         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <FadeIn direction="left" delay={300} className="animate-fade-scale">
+          <Reveal direction="right" distance={50}>
             <div className="space-y-8">
-              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 shadow-2xl transform hover:-translate-y-2 transition-all duration-500 hover:shadow-blue-500/20 animate-slide-up delay-200">
-                <h3 className="text-3xl font-semibold text-white mb-6 animate-slide-left delay-100">
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 shadow-2xl transform hover:-translate-y-2 transition-all duration-500 hover:shadow-blue-500/20">
+                <h3 className="text-3xl font-semibold text-white mb-6">
                   Contact <span className="text-blue-400">Information</span>
                 </h3>
-                <p className="text-gray-300 mb-8 leading-relaxed text-lg animate-fade-up delay-200">
+                <p className="text-gray-300 mb-8 leading-relaxed text-lg">
                   Ready to bring your ideas to life? Whether you need a mobile
                   app, web application, or full-stack solution, I'm here to help
                   you achieve your goals.
                 </p>
 
                 <div className="space-y-6 mb-8">
-                  <div className="group flex items-center gap-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl transition-all duration-300 hover:bg-gray-900/70 hover:border-blue-500/30 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10 animate-fade-up delay-300">
+                  <div className="group flex items-center gap-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl transition-all duration-300 hover:bg-gray-900/70 hover:border-blue-500/30 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-500/10">
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                       <Mail className="text-white" size={20} />
                     </div>
@@ -120,7 +108,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="group flex items-center gap-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl transition-all duration-300 hover:bg-gray-900/70 hover:border-purple-500/30 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/10 animate-fade-up delay-400">
+                  <div className="group flex items-center gap-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl transition-all duration-300 hover:bg-gray-900/70 hover:border-purple-500/30 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/10">
                     <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-purple-700 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                       <Phone className="text-white" size={20} />
                     </div>
@@ -130,20 +118,20 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="group flex items-center gap-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl transition-all duration-300 hover:bg-gray-900/70 hover:border-green-500/30 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-green-500/10 animate-fade-up delay-500">
+                  <div className="group flex items-center gap-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-xl transition-all duration-300 hover:bg-gray-900/70 hover:border-green-500/30 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-green-500/10">
                     <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-green-700 rounded-full flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
                       <MapPin className="text-white" size={20} />
                     </div>
                     <div>
                       <p className="text-gray-400 text-sm mb-1">Location</p>
                       <p className="text-white font-medium">
-                        Tapyiala, Tehsile Kharian, District Gujrat
+                        Gujrat , Punjab , Pakistan
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex gap-4 animate-fade-up delay-600">
+                <div className="flex gap-4">
                   <a
                     href="https://github.com/Rehman532"
                     target="_blank"
@@ -164,7 +152,7 @@ const Contact = () => {
               </div>
 
               {/* Response time indicator */}
-              <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/30 rounded-xl p-4 transform hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 animate-bounce-in delay-500">
+              <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm border border-blue-500/30 rounded-xl p-4 transform hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
                 <div className="flex items-center gap-3">
                   <MessageSquare className="text-blue-400" size={20} />
                   <div>
@@ -176,30 +164,30 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </FadeIn>
+          </Reveal>
 
           {/* Contact Form */}
-          <FadeIn direction="right" delay={400} className="animate-fade-scale">
-            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 shadow-2xl transform hover:-translate-y-2 transition-all duration-500 hover:shadow-purple-500/20 animate-slide-up delay-300">
-              <h3 className="text-3xl font-semibold text-white mb-8 animate-slide-left delay-100">
+          <Reveal direction="left" distance={50} delay={0.12}>
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 shadow-2xl transform hover:-translate-y-2 transition-all duration-500 hover:shadow-purple-500/20">
+              <h3 className="text-3xl font-semibold text-white mb-8">
                 Send <span className="text-purple-400">Message</span>
               </h3>
 
               {isSubmitted ? (
-                <div className="text-center py-12 animate-bounce-in">
-                  <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-scale-in">
+                <div className="text-center py-12">
+                  <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle className="text-white" size={40} />
                   </div>
-                  <h4 className="text-2xl font-semibold text-white mb-2 animate-fade-up delay-100">
+                  <h4 className="text-2xl font-semibold text-white mb-2">
                     Message Sent!
                   </h4>
-                  <p className="text-gray-400 animate-fade-up delay-200">
+                  <p className="text-gray-400">
                     Thank you for reaching out. I'll get back to you soon.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="animate-fade-up delay-100">
+                  <div className="animate-fade-up">
                     <label
                       htmlFor="name"
                       className="block text-gray-300 mb-2 font-medium"
@@ -219,7 +207,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="animate-fade-up delay-200">
+                  <div className="animate-fade-up">
                     <label
                       htmlFor="email"
                       className="block text-gray-300 mb-2 font-medium"
@@ -239,7 +227,7 @@ const Contact = () => {
                     />
                   </div>
 
-                  <div className="animate-fade-up delay-300">
+                  <div className="animate-fade-up">
                     <label
                       htmlFor="message"
                       className="block text-gray-300 mb-2 font-medium"
@@ -262,7 +250,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-500 flex items-center justify-center gap-3 shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed animate-fade-up delay-400"
+                    className="w-full relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-600 disabled:to-gray-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-500 flex items-center justify-center gap-3 shadow-2xl hover:shadow-blue-500/25 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
@@ -279,7 +267,7 @@ const Contact = () => {
                 </form>
               )}
             </div>
-          </FadeIn>
+          </Reveal>
         </div>
       </div>
     </section>

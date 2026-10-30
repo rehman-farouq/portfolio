@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "Testing React & Next.js Applications 2026 | Complete Testing Guide",
-  description: "Master testing in React and Next.js. Learn unit testing with Jest, component testing with React Testing Library, E2E testing with Playwright, integration testing, and testing best practices.",
+  title: "Testing React & Next.js Applications 2026 | Rehman Farouq",
+  description: "Master testing in React and Next.js. Learn unit testing with Jest, component testing with React Testing Library, E2E testing with Playwright, integration…",
   keywords: "React testing, Next.js testing, Jest, React Testing Library, Playwright, E2E testing, unit testing, integration testing, testing best practices, TDD, test coverage",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "Testing React & Next.js Applications 2026 | Complete Testing Guide",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Testing React & Next.js Applications 2026 | Rehman Farouq",
     description: "Complete guide to testing React and Next.js applications with modern tools and best practices.",
     url: "https://rehmanfarouq.site/blog/testing-react-nextjs",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/testing-react-nextjs/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Testing React Next.js Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Testing React & Next.js Applications 2026",
     description: "Master unit, integration, and E2E testing for React and Next.js applications.",
-    images: ["https://rehmanfarouq.site/blog/testing-react-nextjs/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {

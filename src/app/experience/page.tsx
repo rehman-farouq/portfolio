@@ -7,25 +7,27 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
   title:
-    "Professional Experience & Career History | Full Stack Developer | Flutter, React, Next.js Developer Journey",
+    "Experience | Rehman Farouq – Flutter & Next.js Developer",
   description:
-    "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter development, React projects, Next.js applications, and full stack development. View career progression and technical expertise growth.",
+    "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter…",
   keywords:
     "professional experience, developer career history, full stack developer experience, Flutter developer jobs, React development experience, Next.js developer roles, software engineer career, web development experience, mobile app development career, programming professional background, tech career journey, developer work history, software development experience, IT professional experience",
   openGraph: {
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title:
-      "Professional Experience & Career History | Full Stack Developer | Flutter, React, Next.js Developer Journey",
+      "Experience | Rehman Farouq – Flutter & Next.js Developer",
     description:
-      "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter, React, Next.js development.",
+      "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter…",
     url: "https://rehmanfarouq.site/experience",
     type: "website",
     siteName: "Rehman Farouq Portfolio",
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Professional Experience & Career History | Full Stack Developer",
     description:
-      "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter, React, Next.js development.",
+      "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter…",
   },
   robots: {
     index: true,
@@ -69,6 +71,7 @@ export default function ExperiencePage() {
 
       {/* Main Content */}
       <main className="flex-grow">
+        <h1 className="sr-only">Professional Experience – Rehman Farouq</h1>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <AnimatedSection delay={200}>
             <Experience />

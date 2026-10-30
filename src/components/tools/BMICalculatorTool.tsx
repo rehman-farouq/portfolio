@@ -105,9 +105,9 @@ const BMICalculatorTool = () => {
         <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
           <Heart size={32} />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           BMI Calculator
-        </h1>
+        </h2>
         <p className="text-gray-600 dark:text-gray-400">
           Calculate your Body Mass Index and check your health status
         </p>

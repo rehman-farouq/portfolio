@@ -1,35 +1,26 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title:
-    "Developer Tools | Free Online Utilities | JSON Formatter, Converter Tools, Calculator",
+  title: "Free Online Developer Tools & Calculators | Rehman Farouq",
   description:
-    "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, password generator, unit converter, and more. Useful online utilities for web developers and programmers.",
+    "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, password generator, unit converter, and…",
   keywords:
     "developer tools, free online tools, JSON formatter, Base64 converter, color converter, QR code generator, password generator, unit converter, online utilities, web tools, programmer tools, code formatter, developer utilities, HTML encoder, CSS minifier, JSON validator, code beautifier, online tools, useful tools",
   openGraph: {
-    title:
-      "Developer Tools | Free Online Utilities | JSON Formatter, Converter Tools, Calculator",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "Free Online Developer Tools & Calculators | Rehman Farouq",
     description:
-      "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, password generator, and more useful online utilities.",
+      "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, password generator, and more useful online…",
     url: "https://rehmanfarouq.site/tools",
     type: "website",
     siteName: "Rehman Farouq - Developer Tools",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/images/tools-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Developer Tools",
-      },
-    ],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Developer Tools | Free Online Utilities",
     description:
       "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, and more useful utilities.",
-    images: ["https://rehmanfarouq.site/images/tools-og.jpg"],
   },
   robots: {
     index: true,

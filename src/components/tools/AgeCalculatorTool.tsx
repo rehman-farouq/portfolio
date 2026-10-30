@@ -121,9 +121,9 @@ const AgeCalculatorTool = () => {
         <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center text-white mx-auto mb-4">
           <Calendar size={32} />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
           Age Calculator
-        </h1>
+        </h2>
         <p className="text-gray-600 dark:text-gray-400">
           Calculate your exact age in years, months, days, hours, and minutes
         </p>

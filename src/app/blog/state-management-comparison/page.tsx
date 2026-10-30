@@ -11,32 +11,25 @@ const getYesterdayDate = () => {
 }
 
 export const metadata: Metadata = {
-  title: "State Management Comparison 2026 | Redux, Zustand, Jotai & More",
+  title: "State Management Comparison 2026 | Rehman Farouq",
   description: "Compare state management solutions including Redux, Zustand, Jotai, Recoil, and Context API. Learn which one to choose for your React application.",
   keywords: "state management, Redux, Zustand, Jotai, Recoil, Context API, React state, state comparison, React 2026, state management tutorial",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
-    title: "State Management Comparison 2026 | Redux, Zustand, Jotai & More",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
+    title: "State Management Comparison 2026 | Rehman Farouq",
     description: "Complete comparison of state management solutions with practical examples and best practices.",
     url: "https://rehmanfarouq.site/blog/state-management-comparison",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    images: [
-      {
-        url: "https://rehmanfarouq.site/blog/state-management-comparison/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "State Management Comparison Tutorial",
-      },
-    ],
     publishedTime: new Date().toISOString(),
     authors: ["Rehman Farouq"],
   },
   twitter: {
+    images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "State Management Comparison 2026",
     description: "Compare Redux, Zustand, Jotai, and other state management solutions.",
-    images: ["https://rehmanfarouq.site/blog/state-management-comparison/twitter-image.jpg"],
     creator: "@rehmanfarouq",
   },
   robots: {
