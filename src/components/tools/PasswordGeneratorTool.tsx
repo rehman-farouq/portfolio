@@ -35,7 +35,7 @@ const PasswordGeneratorTool = () => {
 
   const calculateStrength = (pwd: string) => {
     let score = 0
-    let feedback = []
+    const feedback = []
     
     if (pwd.length >= 12) score += 25
     if (pwd.length >= 16) score += 25

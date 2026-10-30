@@ -37,7 +37,7 @@ const SocialProof = () => {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <section className="py-20 bg-gradient-to-b from-transparent via-white/45 to-transparent dark:via-white/[0.025]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -46,10 +46,10 @@ const SocialProof = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Trusted by <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Industry Leaders</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+            Trusted by <span className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">Industry Leaders</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
             Numbers that speak for themselves and the quality I deliver
           </p>
         </motion.div>
@@ -67,7 +67,7 @@ const SocialProof = () => {
                 stiffness: 100
               }}
               viewport={{ once: true }}
-              className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 text-center hover:bg-gray-800/70 hover:border-gray-600/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 group"
+              className="bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm border border-slate-200 dark:border-gray-700/50 rounded-2xl p-8 text-center hover:bg-white dark:hover:bg-gray-800/70 hover:border-slate-300 dark:hover:border-gray-600/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 group"
             >
               {/* Icon */}
               <motion.div
@@ -82,17 +82,17 @@ const SocialProof = () => {
                 <AnimatedCounter
                   end={stat.value}
                   suffix={stat.suffix}
-                  className="text-4xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300"
+                  className="text-4xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300"
                 />
               </div>
 
               {/* Label */}
-              <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                 {stat.label}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed">
                 {stat.description}
               </p>
             </motion.div>

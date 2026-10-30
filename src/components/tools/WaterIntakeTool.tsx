@@ -15,7 +15,7 @@ export default function WaterIntakeTool() {
 
   useEffect(() => {
     const weightKg = parseFloat(weight) || 0
-    let baseIntake = weightKg * 35 // Base: 35ml per kg
+    const baseIntake = weightKg * 35 // Base: 35ml per kg
 
     // Activity adjustments
     const activityMultipliers = {

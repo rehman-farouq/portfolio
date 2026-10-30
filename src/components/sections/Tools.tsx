@@ -95,7 +95,7 @@ const Tools = () => {
   }
 
   return (
-    <section id="tools" className="relative py-24 bg-gradient-to-br from-gray-50 dark:from-gray-900 via-gray-100 dark:via-gray-800 to-gray-50 dark:to-gray-900 overflow-hidden">
+    <section id="tools" className="relative py-24 bg-gradient-to-b from-transparent via-white/45 to-transparent dark:via-white/[0.025] overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>

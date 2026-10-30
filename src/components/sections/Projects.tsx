@@ -110,7 +110,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="relative py-24 bg-gradient-to-br from-gray-50 dark:from-gray-900 via-gray-100 dark:via-gray-800 to-gray-50 dark:to-gray-900 overflow-hidden"
+      className="relative py-24 bg-gradient-to-b from-transparent via-white/45 to-transparent dark:via-white/[0.025] overflow-hidden"
     >
       {/* Background decoration */}
       <div className="absolute inset-0">

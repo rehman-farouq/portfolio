@@ -19,7 +19,7 @@ const CSSMinifierTool = () => {
     }
 
     // Basic CSS minification
-    let minified = inputCSS
+    const minified = inputCSS
       // Remove comments
       .replace(/\/\*[\s\S]*?\*\//g, '')
       // Remove whitespace

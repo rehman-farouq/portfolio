@@ -35,7 +35,7 @@ const Navbar = () => {
       initial={{ y: -90, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 110, damping: 20, delay: 0.1 }}
-      className={`fixed inset-x-0 top-4 z-50 w-[95%] max-w-7xl mx-auto rounded-full transition-all duration-500${
+      className={`site-navbar fixed inset-x-0 top-4 z-50 w-[95%] max-w-7xl mx-auto rounded-full transition-all duration-500 ${
         scrolled
           ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl shadow-[0_20px_60px_rgba(15,23,42,0.16)] border border-white/70 dark:border-slate-800/70"
           : "bg-white/40 dark:bg-slate-900/30 backdrop-blur-xl border border-transparent"

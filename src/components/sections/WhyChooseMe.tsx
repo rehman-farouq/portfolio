@@ -44,7 +44,7 @@ const WhyChooseMe = () => {
   ]
 
   return (
-    <section id="why-choose-me" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <section id="why-choose-me" className="py-20 bg-gradient-to-b from-transparent via-white/45 to-transparent dark:via-white/[0.025]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -53,11 +53,11 @@ const WhyChooseMe = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-            Why <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Choose Me</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
+            Why <span className="bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-green-400 dark:to-blue-400 bg-clip-text text-transparent">Choose Me</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-green-500 to-blue-500 mx-auto mb-6"></div>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-slate-600 dark:text-gray-400 text-lg max-w-3xl mx-auto">
             The strategic advantages that make me the ideal partner for your next project
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ const WhyChooseMe = () => {
                 stiffness: 100
               }}
               viewport={{ once: true }}
-              className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:bg-gray-800/70 hover:border-gray-600/50 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/10"
+              className="group bg-white/70 dark:bg-gray-800/50 backdrop-blur-sm border border-slate-200 dark:border-gray-700/50 rounded-2xl p-8 hover:bg-white dark:hover:bg-gray-800/70 hover:border-slate-300 dark:hover:border-gray-600/50 transition-all duration-500 hover:shadow-2xl hover:shadow-green-500/10"
             >
               {/* Icon */}
               <motion.div
@@ -87,16 +87,16 @@ const WhyChooseMe = () => {
 
               {/* Content */}
               <div className="text-center">
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-green-400 transition-colors duration-300">
                   {reason.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed mb-4">
+                <p className="text-slate-600 dark:text-gray-400 leading-relaxed mb-4">
                   {reason.description}
                 </p>
                 
                 {/* Benefit Tag */}
                 <div className="inline-flex items-center gap-2 bg-green-600/20 border border-green-500/30 rounded-full px-4 py-2">
-                  <span className="text-green-400 text-sm font-medium">
+                  <span className="text-emerald-600 dark:text-green-400 text-sm font-medium">
                     {reason.benefit}
                   </span>
                 </div>
@@ -114,10 +114,10 @@ const WhyChooseMe = () => {
           className="text-center mt-16"
         >
           <div className="bg-gradient-to-r from-green-600/20 to-blue-600/20 backdrop-blur-sm border border-green-500/30 rounded-3xl p-8 sm:p-12">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Build Something <span className="text-green-400">Powerful</span> Together?
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+              Ready to Build Something <span className="text-emerald-600 dark:text-green-400">Powerful</span> Together?
             </h3>
-            <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-slate-600 dark:text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
               Let's discuss how my expertise can help you achieve your business goals and drive measurable growth.
             </p>
             <motion.button

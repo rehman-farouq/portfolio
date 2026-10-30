@@ -158,7 +158,7 @@ export default function PhoneNumberFormatterTool() {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
 
   const formatPhoneNumber = (number: string, country: Country, type: string): FormatResult => {
-    let cleanedNumber = number.replace(/[^\d+]/g, '') // Remove non-digits
+    const cleanedNumber = number.replace(/[^\d+]/g, '') // Remove non-digits
     let formatted = ''
     let isValid = false
     

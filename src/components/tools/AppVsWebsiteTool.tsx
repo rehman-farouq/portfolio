@@ -75,7 +75,7 @@ export default function AppVsWebsiteTool() {
     
     // Determine recommendation
     let recommendation: 'app' | 'website' | 'both' = 'website'
-    let reasoning: string[] = []
+    const reasoning: string[] = []
     
     // Decision logic
     if (users < 100) {

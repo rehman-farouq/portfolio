@@ -461,9 +461,9 @@ export default function ToolsPage() {
   )
 
   return (
-    <div className="min-h-screen bg-background dark:bg-gray-900 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* Navigation Header */}
-      <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 animate-in slide-in-from-top duration-500">
+      <nav className="site-subnav sticky top-0 z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link 
@@ -530,8 +530,7 @@ export default function ToolsPage() {
                 className="group relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-gray-200/50 dark:border-gray-700/50 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2"
               >
                 {/* Background decoration */}
-                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl"
-                     style={{ backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
+                <div className={`absolute inset-0 bg-gradient-to-br ${tool.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl`}
                 ></div>
                 
                 <div className="relative">
@@ -561,8 +560,7 @@ export default function ToolsPage() {
                   {/* Action Button */}
                   <Link
                     href={tool.route}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg group-hover:shadow-xl"
-                    style={{ backgroundImage: `linear-gradient(to right, var(--tw-gradient-stops))` }}
+                    className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${tool.color} text-white rounded-xl font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg group-hover:shadow-xl`}
                   >
                     Use Tool
                     <ExternalLink size={16} />

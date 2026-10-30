@@ -1,46 +1,59 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sun, Moon } from 'lucide-react'
-import { useTheme } from '@/contexts/ThemeContext'
+import { Monitor, Moon, Sun } from 'lucide-react'
+import { useTheme, type ThemePreference } from '@/contexts/ThemeContext'
 
+const OPTIONS: { value: ThemePreference; label: string; Icon: typeof Sun }[] = [
+  { value: 'system', label: 'System theme', Icon: Monitor },
+  { value: 'light', label: 'Light theme', Icon: Sun },
+  { value: 'dark', label: 'Dark theme', Icon: Moon },
+]
+
+/** Floating 3-way theme switch: System (default) · Light · Dark. */
 const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme()
+  const { preference, theme, setPreference } = useTheme()
 
   return (
-    <motion.button
-      onClick={toggleTheme}
-      whileHover={{ scale: 1.1, rotate: 15 }}
-      whileTap={{ scale: 0.9 }}
-      className="fixed top-24 right-8 w-12 h-12 bg-gray-800/50 dark:bg-gray-700/50 backdrop-blur-sm border border-gray-700 dark:border-gray-600 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-white transition-all duration-300 z-40"
-      aria-label="Toggle theme"
+    <motion.div
+      initial={{ opacity: 0, y: 24, scale: 0.9 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ delay: 0.6, type: 'spring', stiffness: 220, damping: 20 }}
+      role="radiogroup"
+      aria-label="Theme"
+      className="theme-dock fixed bottom-6 left-4 z-[70] flex items-center gap-0.5 rounded-full p-1 sm:left-6"
     >
-      <motion.div
-        initial={false}
-        animate={{ 
-          rotate: theme === 'dark' ? 180 : 0,
-          scale: theme === 'dark' ? 0 : 1,
-          opacity: theme === 'dark' ? 0 : 1
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="absolute"
-      >
-        <Sun size={20} className="text-yellow-400" />
-      </motion.div>
-      
-      <motion.div
-        initial={false}
-        animate={{ 
-          rotate: theme === 'light' ? -180 : 0,
-          scale: theme === 'light' ? 0 : 1,
-          opacity: theme === 'light' ? 0 : 1
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="absolute"
-      >
-        <Moon size={20} className="text-blue-300" />
-      </motion.div>
-    </motion.button>
+      {OPTIONS.map(({ value, label, Icon }) => {
+        const active = preference === value
+        return (
+          <button
+            key={value}
+            type="button"
+            role="radio"
+            aria-checked={active}
+            aria-label={label}
+            title={value === 'system' ? `System (currently ${theme})` : label}
+            onClick={() => setPreference(value)}
+            className="relative flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+          >
+            {active && (
+              <motion.span
+                layoutId="theme-pill"
+                transition={{ type: 'spring', stiffness: 420, damping: 32 }}
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500 to-fuchsia-500 shadow-lg shadow-indigo-500/40"
+              />
+            )}
+            <motion.span
+              className={`relative z-10 ${active ? 'text-white' : ''}`}
+              whileHover={{ rotate: value === 'light' ? 90 : value === 'dark' ? -15 : 0, scale: 1.15 }}
+              whileTap={{ scale: 0.85 }}
+            >
+              <Icon size={16} />
+            </motion.span>
+          </button>
+        )
+      })}
+    </motion.div>
   )
 }
 

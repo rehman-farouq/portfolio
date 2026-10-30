@@ -32,10 +32,10 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicy() {
   return (
-    <div className="min-h-screen bg-background dark:bg-gray-900">
+    <div className="min-h-screen">
 
       {/* Header */}
-      <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 border-b">
+      <nav className="site-subnav sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-gray-600">
             <ArrowLeft size={18} />

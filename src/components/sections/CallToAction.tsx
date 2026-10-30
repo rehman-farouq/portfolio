@@ -5,7 +5,7 @@ import { ArrowRight, Rocket, Star } from 'lucide-react'
 
 const CallToAction = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <section className="py-20 bg-gradient-to-b from-transparent via-white/45 to-transparent dark:via-white/[0.025]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -31,9 +31,9 @@ const CallToAction = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6"
             >
-              Let's Build Something <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Powerful</span> Together
+              Let's Build Something <span className="bg-gradient-to-r from-emerald-600 to-blue-600 dark:from-green-400 dark:to-blue-400 bg-clip-text text-transparent">Powerful</span> Together
             </motion.h2>
 
             {/* Subheading */}
@@ -41,7 +41,7 @@ const CallToAction = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.8 }}
-              className="text-gray-400 text-lg max-w-3xl mx-auto mb-8 leading-relaxed"
+              className="text-slate-600 dark:text-gray-400 text-lg max-w-3xl mx-auto mb-8 leading-relaxed"
             >
               Transform your ideas into reality with cutting-edge Flutter and Next.js applications 
               that drive business growth and deliver exceptional user experiences.
@@ -73,15 +73,15 @@ const CallToAction = () => {
             >
               <div className="flex items-center gap-2">
                 <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                <span className="text-gray-400 text-sm">Proven Results</span>
+                <span className="text-slate-600 dark:text-gray-400 text-sm">Proven Results</span>
               </div>
               <div className="flex items-center gap-2">
                 <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                <span className="text-gray-400 text-sm">Expert Support</span>
+                <span className="text-slate-600 dark:text-gray-400 text-sm">Expert Support</span>
               </div>
               <div className="flex items-center gap-2">
                 <Star className="w-5 h-5 text-yellow-400 fill-current" />
-                <span className="text-gray-400 text-sm">On-Time Delivery</span>
+                <span className="text-slate-600 dark:text-gray-400 text-sm">On-Time Delivery</span>
               </div>
             </motion.div>
           </div>

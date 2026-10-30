@@ -52,9 +52,9 @@ export const metadata: Metadata = {
 export default function HowToLearnFlutterPage() {
   const yesterdayDate = getYesterdayDate()
   return (
-    <div className="min-h-screen bg-background dark:bg-gray-900 flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* Navigation Header */}
-      <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-700/50 animate-in slide-in-from-top duration-500">
+      <nav className="site-subnav sticky top-0 z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link 

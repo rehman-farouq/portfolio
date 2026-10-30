@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import MotionProvider from "@/components/ui/MotionProvider";
+import SceneBackground from "@/components/ui/SceneBackground";
+import PointerFX from "@/components/ui/PointerFX";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -77,8 +79,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f5f7ff" },
-    { media: "(prefers-color-scheme: dark)", color: "#050816" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f6ff" },
+    { media: "(prefers-color-scheme: dark)", color: "#05060f" },
   ],
 };
 
@@ -149,7 +151,7 @@ export const metadata: Metadata = {
 };
 
 // Runs before first paint → no dark/light flash on load.
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}var c=document.documentElement.classList;c.remove('light','dark');c.add(t)}catch(e){document.documentElement.classList.add('dark')}})();`;
+const themeScript = `(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.classList.remove('light','dark');d.classList.add(t);d.style.colorScheme=t;d.dataset.theme=t}catch(e){d.classList.add(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}})();`;
 
 export default function RootLayout({
   children,
@@ -166,10 +168,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-900 dark:text-white`}
       >
         <MotionProvider>
           <ThemeProvider>
+            <SceneBackground />
+            <PointerFX />
             {children}
             <ThemeToggle />
           </ThemeProvider>

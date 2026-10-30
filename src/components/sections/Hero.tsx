@@ -33,6 +33,15 @@ const ROLES = [
   "Play Store & App Store launches",
 ];
 
+const ORBIT = [
+  { name: "Flutter", src: "/images/flutter.png" },
+  { name: "Dart", src: "/images/dart.png" },
+  { name: "Next.js", src: "/images/nextjs.png" },
+  { name: "Firebase", src: "/images/firebase.png" },
+  { name: "Tailwind", src: "/images/tailwind.png" },
+  { name: "API", src: "/images/api.png" },
+];
+
 const TECH = ["Flutter", "Next.js", "UI/UX", "Android", "iOS", "Firebase", "API Integration", "Animations"];
 
 const STATS = [
@@ -74,6 +83,8 @@ const Hero = () => {
   const spotlight = useMotionTemplate`radial-gradient(380px circle at ${mx}px ${my}px, rgba(99,102,241,0.18), transparent 70%)`;
   const photoX = useSpring(useTransform(px, [-0.5, 0.5], [-14, 14]), { stiffness: 80, damping: 18 });
   const photoY = useSpring(useTransform(py, [-0.5, 0.5], [-14, 14]), { stiffness: 80, damping: 18 });
+  const photoRotY = useSpring(useTransform(px, [-0.5, 0.5], [-14, 14]), { stiffness: 90, damping: 18 });
+  const photoRotX = useSpring(useTransform(py, [-0.5, 0.5], [12, -12]), { stiffness: 90, damping: 18 });
 
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return;
@@ -92,8 +103,7 @@ const Hero = () => {
       id="home"
       className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-28 sm:px-6 lg:px-8"
     >
-      <div className="absolute inset-0 bg-linear-to-br from-blue-950/10 via-purple-950/10 to-pink-950/10 dark:from-blue-950/25 dark:via-purple-950/25 dark:to-pink-950/25" />
-      <motion.div aria-hidden style={{ background: spotlight }} className="pointer-events-none absolute inset-0 hidden md:block" />
+            <motion.div aria-hidden style={{ background: spotlight }} className="pointer-events-none absolute inset-0 hidden md:block" />
 
       {/* floating orbs (CSS only, GPU-friendly) */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
@@ -111,7 +121,14 @@ const Hero = () => {
             transition={{ duration: 0.9, ease: EASE }}
             className="flex justify-center lg:justify-start"
           >
-            <motion.div style={{ x: photoX, y: photoY }} className="relative">
+            <motion.div style={{ x: photoX, y: photoY, rotateX: photoRotX, rotateY: photoRotY, transformPerspective: 1000 }} className="relative">
+              <div aria-hidden className="orbit-ring pointer-events-none hidden lg:block">
+                {ORBIT.map((o, i) => (
+                  <div key={o.name} className="orbit-chip" style={{ ["--i" as string]: i }}>
+                    <Image src={o.src} alt="" width={22} height={22} className="h-[22px] w-[22px] object-contain" />
+                  </div>
+                ))}
+              </div>
               <div aria-hidden className="absolute -inset-3 animate-[spin_9s_linear_infinite] rounded-[2.2rem] bg-[conic-gradient(from_0deg,#3b82f6,#a855f7,#ec4899,#3b82f6)] opacity-70 blur-xl" />
               <div className="animate-float relative overflow-hidden rounded-[2rem] border border-white/60 bg-white/70 p-3 shadow-[0_30px_90px_rgba(37,99,235,0.25)] backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/70">
                 <div className="relative h-72 w-56 overflow-hidden rounded-[1.5rem] sm:h-80 sm:w-64 md:h-96 md:w-72 lg:h-[28rem] lg:w-80">

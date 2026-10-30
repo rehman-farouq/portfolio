@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 // so the page itself ships no extra client JS and no duplicate wrapper animations.
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-clip bg-background dark:bg-gray-900">
+    <div className="min-h-screen overflow-x-clip">
       <Navbar />
       <main>
         <Hero />
