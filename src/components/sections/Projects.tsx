@@ -2,12 +2,18 @@
 
 import { ExternalLink, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { SectionHeading, Stagger, StaggerItem, Reveal } from "@/components/motion/Reveal";
+import {
+  SectionHeading,
+  Stagger,
+  StaggerItem,
+  Reveal,
+} from "@/components/motion/Reveal";
 import TiltCard from "@/components/ui/TiltCard";
 
 const Projects = () => {
   const projects = [
     {
+      image: "/images/projects/GleamHR Modern HR Management Showcase.webp",
       title: "GleamHR - AI-Powered HR Management",
       description:
         "Comprehensive cloud-based HR platform with AI-assisted recruitment, employee onboarding, time tracking, payroll processing, and performance reviews. Features face attendance, asset tracking, custom workflows, Pumble integration, and real-time analytics for data-driven HR decisions.",
@@ -27,6 +33,19 @@ const Projects = () => {
       client: "Glowlogix",
     },
     {
+      image: "/images/projects/Modern PMS Dashboard Showcase.webp",
+      title: "PMS - Production Management System",
+      description:
+        "Full-stack production management platform with Role-Based Access Control (RBAC), master data modules (Products, Parts, Suppliers, Scrap Vendors, Warehouses), Purchase Orders, Goods Receipt Notes (GRN), and Repair Slips to streamline manufacturing workflows and inventory tracking.",
+      techStack: ["Next.js", "TypeScript", "RBAC", "REST APIs", "Tailwind CSS"],
+      liveDemo: "https://pms.tamoorfan.com",
+      featured: false,
+      gradient: "from-indigo-500 to-sky-500",
+      projectType: "Production Management Web App",
+      client: "Tamoor Fans",
+    },
+    {
+      image: "/images/projects/KiddoMind_ Learn, Play and Grow.webp",
       title: "KiddoMind - Kids Learning & Educational App",
       description:
         "Interactive kids learning app designed to make education fun and engaging through visuals, sounds, and activities. Features include animals & birds learning with real voices, alphabet & counting modules, drawing board, quizzes, and voice-guided learning. The app helps children improve recognition skills, pronunciation, and early education through gamified experiences and interactive UI.",
@@ -46,6 +65,7 @@ const Projects = () => {
       client: "IR Tech Solution",
     },
     {
+      image: "/images/projects/Binomical AI Automation Hero Banner.webp",
       title: "Binomical",
       description:
         "Your AI-Powered Partner for Automated Business Processes. From data to insights to automation powered by AI using optimized design. Specializing in Salesforce implementation and intelligent workflow automation.",
@@ -67,6 +87,7 @@ const Projects = () => {
     },
 
     {
+      image: "/images/projects/Gigstrap AI Service Matching Banner.webp",
       title: "GIGSTRAP",
       description:
         "Gigstrap is an AI-powered service marketplace that connects users with service providers instantly through intelligent matching. It combines blockchain technology for secure transactions with features like multi-role access, Gigtoken rewards, and enterprise workforce management tools.",
@@ -88,6 +109,25 @@ const Projects = () => {
     },
 
     {
+      image: "/images/projects/Anabia’s Luxurious Beauty Parlour Hero.webp",
+      title: "Anabia's Beauty Parlour - Salon Booking Website",
+      description:
+        "Modern, mobile-first responsive salon website with a dynamic services showcase, boutique product section, appointment booking flow, dedicated service detail pages, and Google Maps integration for location and directions.",
+      techStack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Google Maps",
+      ],
+      liveDemo: "https://beauty-parlour-navy.vercel.app/",
+      featured: false,
+      gradient: "from-pink-400 to-orange-400",
+      projectType: "Salon Booking Website",
+      client: "Anabia's Beauty Parlour",
+    },
+    {
+      image: "/images/projects/SaraaKuch Premium Cosmetics Showcase.webp",
       title: "SaraaKuch - Beauty & Lifestyle E-Commerce ",
       description:
         "A complete one-stop online store solution for apparel, cosmetics, food items, and lifestyle products. Features include product catalog management, secure checkout, user authentication, and an intuitive shopping experience.",
@@ -129,72 +169,85 @@ const Projects = () => {
           {projects.map((project, index) => (
             <StaggerItem key={index} className="h-full">
               <TiltCard className="h-full rounded-2xl">
-              <div
-                className={`group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white/80 p-8 shadow-lg shadow-slate-900/5 backdrop-blur-sm transition-shadow duration-500 hover:shadow-2xl hover:shadow-blue-500/15 dark:border-gray-700/50 dark:bg-gray-800/50 ${
-                  project.featured ? "ring-2 ring-blue-500/50" : ""
-                }`}
-              >
-                {/* Top badges: project type (left) and featured (right) */}
-                <div className="flex justify-between items-start mb-4">
-                  <span className="bg-slate-100 dark:bg-gray-700/60 backdrop-blur-sm text-slate-600 dark:text-gray-300 text-xs font-medium px-3 py-1 rounded-full">
-                    {project.projectType}
-                  </span>
-                  {project.featured && (
-                    <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
-                      Featured
-                    </span>
-                  )}
-                </div>
-
-                {/* Project header */}
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
-                    {project.description}
-                  </p>
-                  <p className="text-slate-500 dark:text-gray-400 text-sm mt-3 flex items-center gap-2">
-                    <span>👤</span> {project.client}
-                  </p>
-                </div>
-
-                {/* Tech stack */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.techStack.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-3 py-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium border border-blue-600/30 hover:border-blue-500/50 transition-colors duration-300"
-                     
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action buttons */}
-                <div className="flex gap-4">
-                  <a
-                    href={project.liveDemo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group/link flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-500 font-medium transition-colors duration-300 hover:bg-blue-600/10 px-4 py-2 rounded-lg ${
-                      !project.liveDemo ? "pointer-events-none opacity-50" : ""
-                    }`}
-                  >
-                    <ExternalLink
-                      size={16}
-                      className="group-hover/link:translate-x-1 group-hover/link:translate-y-1 transition-transform"
-                    />
-                    <span>Live Demo</span>
-                  </a>
-                </div>
-
-                {/* Hover effect overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}
-                ></div>
-              </div>
+                  className={`group relative h-full overflow-hidden rounded-2xl border border-slate-200 bg-white/80 p-8 shadow-lg shadow-slate-900/5 backdrop-blur-sm transition-shadow duration-500 hover:shadow-2xl hover:shadow-blue-500/15 dark:border-gray-700/50 dark:bg-gray-800/50 ${
+                    project.featured ? "ring-2 ring-blue-500/50" : ""
+                  }`}
+                >
+                  {/* Project cover image */}
+                  <div className="-mx-8 -mt-8 mb-6 aspect-video overflow-hidden bg-slate-100 dark:bg-gray-900">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={project.image}
+                      alt={`${project.title} screenshot`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+
+                  {/* Top badges: project type (left) and featured (right) */}
+                  <div className="flex justify-between items-start mb-4">
+                    <span className="bg-slate-100 dark:bg-gray-700/60 backdrop-blur-sm text-slate-600 dark:text-gray-300 text-xs font-medium px-3 py-1 rounded-full">
+                      {project.projectType}
+                    </span>
+                    {project.featured && (
+                      <span className="bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold px-3 py-1 rounded-full flex items-center gap-1">
+                        Featured
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Project header */}
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-gray-300 leading-relaxed text-base sm:text-lg">
+                      {project.description}
+                    </p>
+                    <p className="text-slate-500 dark:text-gray-400 text-sm mt-3 flex items-center gap-2">
+                      <span>👤</span> {project.client}
+                    </p>
+                  </div>
+
+                  {/* Tech stack */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.techStack.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-700 dark:text-blue-300 rounded-lg text-sm font-medium border border-blue-600/30 hover:border-blue-500/50 transition-colors duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="flex gap-4">
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group/link flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-500 font-medium transition-colors duration-300 hover:bg-blue-600/10 px-4 py-2 rounded-lg ${
+                        !project.liveDemo
+                          ? "pointer-events-none opacity-50"
+                          : ""
+                      }`}
+                    >
+                      <ExternalLink
+                        size={16}
+                        className="group-hover/link:translate-x-1 group-hover/link:translate-y-1 transition-transform"
+                      />
+                      <span>Live Demo</span>
+                    </a>
+                  </div>
+
+                  {/* Hover effect overlay */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none`}
+                  ></div>
+                </div>
               </TiltCard>
             </StaggerItem>
           ))}
@@ -207,7 +260,10 @@ const Projects = () => {
             className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 font-semibold text-white shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-blue-500/25"
           >
             View All Projects
-            <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={20} />
+            <ArrowRight
+              className="transition-transform duration-300 group-hover:translate-x-1"
+              size={20}
+            />
           </Link>
         </Reveal>
       </div>
