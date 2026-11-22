@@ -23,10 +23,11 @@ const TOOL_CONTENT = path.join(ROOT, 'src', 'utils', 'tool-content.ts')
 const TOPICS_FILE = path.join(ROOT, 'scripts', 'auto-blog', 'topics.json')
 
 const GEMINI_BASE = process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com'
+// Model names change often. Put the current one in the GEMINI_MODEL repo variable; these are fallbacks.
 const MODELS = [
   process.env.GEMINI_MODEL,
-  'gemini-2.5-flash',
-  'gemini-2.5-flash-lite',
+  'gemini-3.8-flash',
+  'gemini-3.5-flash-lite',
 ].filter(Boolean)
 
 const CATEGORIES = ['Tools', 'Guide', 'Tutorial', 'News', 'Comparison']
@@ -383,7 +384,7 @@ async function callGemini(prompt) {
   }
   let lastErr = ''
   for (const model of MODELS) {
-    for (let attempt = 1; attempt <= 2; attempt++) {
+    for (let attempt = 1; attempt <= 3; attempt++) {
       try {
         const res = await fetch(`${GEMINI_BASE}/v1beta/models/${model}:generateContent`, {
           method: 'POST',
@@ -397,12 +398,12 @@ async function callGemini(prompt) {
               responseSchema: RESPONSE_SCHEMA,
             },
           }),
-          signal: AbortSignal.timeout(180000),
+          signal: AbortSignal.timeout(100000),
         })
         if (res.status === 429 || res.status >= 500) {
           lastErr = `${model}: HTTP ${res.status}`
-          log(lastErr, attempt === 1 ? '- retrying in 25s' : '- next model')
-          if (attempt === 1) await sleep(25000)
+          log(lastErr, attempt < 3 ? '- retrying in 20s' : '- next model')
+          if (attempt < 3) await sleep(20000)
           continue
         }
         if (!res.ok) {
@@ -420,7 +421,8 @@ async function callGemini(prompt) {
         return { json: JSON.parse(text), model }
       } catch (e) {
         lastErr = `${model}: ${e.message}`
-        log(lastErr)
+        log(lastErr, attempt < 3 ? '- retrying in 15s' : '- next model')
+        if (attempt < 3) await sleep(15000)
       }
     }
   }
