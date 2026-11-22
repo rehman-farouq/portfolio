@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import Blog from '@/components/sections/Blog'
+import LatestPosts from '@/components/sections/LatestPosts'
 import Footer from '@/components/layout/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://rehmanfarouq.site/blog",
+    types: { "application/rss+xml": "https://rehmanfarouq.site/feed.xml" },
   },
 }
 
@@ -67,6 +69,7 @@ export default function BlogPage() {
       {/* Main Content */}
       <main className="flex-grow">
         <h1 className="sr-only">Blog – Flutter &amp; Next.js Tutorials by Rehman Farouq</h1>
+        <LatestPosts />
         <AnimatedSection delay={200}>
           <Blog />
         </AnimatedSection>

@@ -835,3 +835,24 @@ textarea:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ───────── Generated blog posts (content/posts/*.md) ───────── */
+.post-body { color: var(--foreground, inherit); line-height: 1.8; font-size: 1.05rem; }
+.post-body > * + * { margin-top: 1.1rem; }
+.post-body h2 { font-size: 1.6rem; font-weight: 700; margin-top: 2.5rem; scroll-margin-top: 5rem; }
+.post-body h3 { font-size: 1.25rem; font-weight: 700; margin-top: 1.8rem; scroll-margin-top: 5rem; }
+.post-body p, .post-body li { color: rgb(75 85 99); }
+.dark .post-body p, .dark .post-body li { color: rgb(156 163 175); }
+.post-body ul { list-style: disc; padding-left: 1.5rem; }
+.post-body ol { list-style: decimal; padding-left: 1.5rem; }
+.post-body li + li { margin-top: .4rem; }
+.post-body a { color: rgb(79 70 229); text-decoration: underline; text-underline-offset: 3px; }
+.dark .post-body a { color: rgb(165 180 252); }
+.post-body strong { font-weight: 600; }
+.post-body code { font-family: var(--font-geist-mono, monospace); font-size: .9em; background: rgba(99,102,241,.12); padding: .1em .35em; border-radius: .3rem; }
+.post-body pre { background: #0f172a; color: #e2e8f0; padding: 1rem 1.25rem; border-radius: .75rem; overflow-x: auto; font-size: .875rem; line-height: 1.6; }
+.post-body pre code { background: none; padding: 0; color: inherit; }
+.post-body blockquote { border-left: 4px solid rgb(99 102 241); padding: .25rem 0 .25rem 1rem; font-style: italic; }
+.post-body table { width: 100%; border-collapse: collapse; font-size: .95rem; display: block; overflow-x: auto; }
+.post-body th, .post-body td { border: 1px solid rgba(148,163,184,.35); padding: .5rem .75rem; text-align: left; }
+.post-body th { background: rgba(99,102,241,.10); font-weight: 600; }

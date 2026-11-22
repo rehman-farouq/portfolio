@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import fs from "node:fs";
 import path from "node:path";
 import { POSTS } from "@/utils/blog-meta";
+import { getAllPosts } from "@/lib/posts";
 
 const BASE = "https://rehmanfarouq.site";
 const APP_DIR = path.join(process.cwd(), "src", "app");
@@ -12,7 +13,7 @@ function slugsIn(section: string): { slug: string; lastModified: Date }[] {
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir, { withFileTypes: true })
-    .filter((d) => d.isDirectory() && fs.existsSync(path.join(dir, d.name, "page.tsx")))
+    .filter((d) => d.isDirectory() && !d.name.startsWith("[") && fs.existsSync(path.join(dir, d.name, "page.tsx")))
     .map((d) => ({
       slug: d.name,
       lastModified: fs.statSync(path.join(dir, d.name, "page.tsx")).mtime,
@@ -50,6 +51,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...slugsIn("blog").map(({ slug, lastModified }) => ({
       url: `${BASE}/blog/${slug}`,
       lastModified: POSTS[slug] ? new Date(POSTS[slug].date) : lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    // Auto-published posts from /content/posts
+    ...getAllPosts().map((p) => ({
+      url: `${BASE}/blog/${p.slug}`,
+      lastModified: new Date(p.updatedAt),
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),

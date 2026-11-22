@@ -1,0 +1,74 @@
+name: Auto blog
+
+# Publishes one post per run. Two runs per day (Pakistan time):
+#   10:00 PKT (05:00 UTC)  -> "am"  slot: tool how-to or evergreen guide
+#   18:00 PKT (13:00 UTC)  -> "pm"  slot: trending developer topic
+on:
+  schedule:
+    - cron: '0 5 * * *'
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Which slot to run'
+        type: choice
+        options: [am, pm]
+        default: am
+      lane:
+        description: 'Force a lane (leave "auto" for normal behaviour)'
+        type: choice
+        options: [auto, tool, evergreen, trending]
+        default: auto
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate post
+        id: gen
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          INPUT_SLOT: ${{ inputs.slot }}
+          INPUT_LANE: ${{ inputs.lane }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            SLOT="$INPUT_SLOT"
+          elif [ "$SCHEDULE" = "0 13 * * *" ]; then
+            SLOT="pm"
+          else
+            SLOT="am"
+          fi
+          LANE_ARGS=""
+          if [ -n "$INPUT_LANE" ] && [ "$INPUT_LANE" != "auto" ]; then LANE_ARGS="--lane $INPUT_LANE"; fi
+          node scripts/auto-blog/generate.mjs --slot "$SLOT" $LANE_ARGS
+
+      - name: Commit and push
+        run: |
+          git config user.name "auto-blog[bot]"
+          git config user.email "auto-blog@users.noreply.github.com"
+          git add content
+          if git diff --cached --quiet; then
+            echo "Nothing to publish this run."
+            exit 0
+          fi
+          git commit -m "chore(blog): auto-publish ${{ steps.gen.outputs.slug }}"
+          git pull --rebase origin "${{ github.ref_name }}"
+          git push

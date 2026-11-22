@@ -6,13 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "blog:generate": "node scripts/auto-blog/generate.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
     "framer-motion": "^12.42.2",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^0.575.0",
+    "marked": "^15.0.12",
     "next": "^16.4.6",
     "react": "19.2.3",
     "react-dom": "19.2.3"
