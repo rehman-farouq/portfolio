@@ -3,27 +3,23 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Heart } from 'lucide-rea
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "Flutter vs React Native 2026 | Rehman Farouq",
-  description: "Comprehensive Flutter vs React Native comparison 2026. Compare performance, development speed, learning curve, ecosystem, community support, cost, and…",
+  description: "Comprehensive Flutter vs React Native comparison 2026.",
   keywords: "Flutter vs React Native 2026, Flutter React Native comparison, mobile app development frameworks, Flutter performance vs React Native, Flutter development speed, React Native development, cross-platform development, mobile app frameworks comparison, Flutter vs React Native ecosystem, Flutter vs React Native cost, mobile app development tools, Flutter vs React Native for startups, React Native vs Flutter for enterprise, mobile development best practices",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Flutter vs React Native 2026 | Rehman Farouq",
-    description: "Comprehensive Flutter vs React Native comparison 2026. Compare performance, development speed, ecosystem, community support, cost, and real-world use cases…",
+    description: "Comprehensive Flutter vs React Native comparison 2026.",
     url: "https://rehmanfarouq.site/blog/flutter-vs-react-native",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('flutter-vs-react-native').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -50,9 +46,10 @@ export const metadata: Metadata = {
 }
 
 export default function FlutterVsReactNativePage() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('flutter-vs-react-native').display
   return (
     <div className="min-h-screen flex flex-col">
+      <BlogJsonLd slug="flutter-vs-react-native" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function FlutterVsReactNativePage() {
                 </span>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Calendar size={14} />
-                  {yesterdayDate}
+                  {postDate}
                 </div>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Clock size={14} />

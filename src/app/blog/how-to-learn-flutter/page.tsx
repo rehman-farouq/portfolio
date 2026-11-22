@@ -3,27 +3,23 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Heart, BookOpen, Target,
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "How to Learn Flutter 2026 | Rehman Farouq",
-  description: "Comprehensive Flutter learning guide for beginners 2026. Master Flutter development with step-by-step tutorials, learning path, best practices, Dart…",
+  description: "Comprehensive Flutter learning guide for beginners 2026.",
   keywords: "how to learn Flutter 2026, Flutter tutorial for beginners, Flutter learning path, Flutter development guide, Dart programming tutorial, Flutter widgets tutorial, Flutter state management, Flutter app development, mobile app development tutorial, Flutter beginner guide, learn Flutter from scratch, Flutter developer course, Flutter programming basics, Flutter project ideas, Flutter career path",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "How to Learn Flutter 2026 | Rehman Farouq",
-    description: "Comprehensive Flutter learning guide for beginners 2026. Master Flutter development with step-by-step tutorials, learning path, best practices, Dart…",
+    description: "Comprehensive Flutter learning guide for beginners 2026.",
     url: "https://rehmanfarouq.site/blog/how-to-learn-flutter",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('how-to-learn-flutter').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -50,9 +46,10 @@ export const metadata: Metadata = {
 }
 
 export default function HowToLearnFlutterPage() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('how-to-learn-flutter').display
   return (
     <div className="min-h-screen flex flex-col">
+      <BlogJsonLd slug="how-to-learn-flutter" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function HowToLearnFlutterPage() {
                 </span>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Calendar size={14} />
-                  {yesterdayDate}
+                  {postDate}
                 </div>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Clock size={14} />

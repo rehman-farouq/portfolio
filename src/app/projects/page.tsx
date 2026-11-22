@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title:
     "Projects | Rehman Farouq – Flutter & Next.js Apps",
   description:
-    "Explore Rehman Farouq's complete portfolio of projects. Discover innovative Flutter mobile apps, Next.js web applications, React projects, and full stack…",
+    "Explore Rehman Farouq's complete portfolio of projects. Discover innovative Flutter mobile apps, Next.",
   keywords:
     "portfolio projects, Flutter apps showcase, Next.js projects, React applications, full stack developer portfolio, web development projects, mobile app portfolio, software projects showcase, development portfolio, programming projects, tech portfolio, developer work showcase, project case studies, live demo projects, GitHub portfolio",
   openGraph: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title:
       "Projects | Rehman Farouq – Flutter & Next.js Apps",
     description:
-      "Explore Rehman Farouq's complete portfolio of projects. Discover innovative Flutter mobile apps, Next.js web applications, React projects, and full stack…",
+      "Explore Rehman Farouq's complete portfolio of projects. Discover innovative Flutter mobile apps, Next.",
     url: "https://rehmanfarouq.site/projects",
     type: "website",
     siteName: "Rehman Farouq Portfolio",

@@ -2,17 +2,13 @@ import { Metadata } from 'next'
 import { ArrowLeft, Calendar, Clock, User, Tag, Zap, Gauge, Cpu } from 'lucide-react'
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "Next.js Performance Optimization 2026 | Rehman Farouq",
-  description: "Master Next.js performance optimization. Learn code splitting, lazy loading, image optimization, caching strategies, server components, and techniques to…",
+  description: "Master Next.js performance optimization.",
   keywords: "Next.js performance optimization, web performance, code splitting, lazy loading, image optimization, caching, server components, Lighthouse score, Next.js 2026, web vitals",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
@@ -22,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://rehmanfarouq.site/blog/performance-optimization-nextjs",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('performance-optimization-nextjs').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -49,10 +45,11 @@ export const metadata: Metadata = {
 }
 
 export default function PerformanceOptimizationNextjs() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('performance-optimization-nextjs').display
 
   return (
     <div className="min-h-screen">
+      <BlogJsonLd slug="performance-optimization-nextjs" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +81,7 @@ export default function PerformanceOptimizationNextjs() {
               </span>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Calendar size={14} />
-                {yesterdayDate}
+                {postDate}
               </div>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Clock size={14} />

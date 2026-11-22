@@ -3,34 +3,30 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Heart, Package, Star } f
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "25 Essential Flutter Packages 2026 | Rehman Farouq",
-  description: "Complete guide to the best Flutter packages and libraries for 2026. Discover essential Flutter packages for state management (Provider, BLoC, Riverpod), UI…",
+  description: "Complete guide to the best Flutter packages and libraries for 2026.",
   keywords: "Flutter packages 2026, best Flutter libraries, Flutter state management packages, Provider Flutter, BLoC Flutter, Riverpod Flutter, Flutter networking packages, Dio HTTP Flutter, Flutter UI packages, Flutter animation packages, Flutter testing packages, Flutter productivity tools, Flutter development tools, Flutter app development, mobile app development, Flutter widgets, Flutter dependencies",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "25 Essential Flutter Packages 2026 | Rehman Farouq",
-    description: "Complete guide to the best Flutter packages and libraries for 2026. Discover essential Flutter packages for state management, UI components, networking…",
+    description: "Complete guide to the best Flutter packages and libraries for 2026.",
     url: "https://rehmanfarouq.site/blog/best-flutter-packages",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('best-flutter-packages').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
     images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "25 Essential Flutter Packages 2026 | Best Flutter Libraries",
-    description: "Complete guide to the best Flutter packages and libraries for 2026. Discover essential Flutter packages for state management, UI components, networking, and…",
+    description: "Complete guide to the best Flutter packages and libraries for 2026.",
     creator: "@rehmanfarouq",
   },
   robots: {
@@ -50,9 +46,10 @@ export const metadata: Metadata = {
 }
 
 export default function BestFlutterPackagesPage() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('best-flutter-packages').display
   return (
     <div className="min-h-screen flex flex-col">
+      <BlogJsonLd slug="best-flutter-packages" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function BestFlutterPackagesPage() {
                 </span>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Calendar size={14} />
-                  {yesterdayDate}
+                  {postDate}
                 </div>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Clock size={14} />

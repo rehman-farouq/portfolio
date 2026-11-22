@@ -72,15 +72,6 @@ const tools = [
     features: ['Unix Timestamp', 'Multiple Formats', 'Timezone Support', 'Current Time']
   },
   {
-    id: 'url-shortener',
-    name: 'URL Shortener',
-    description: 'Create short, memorable URLs from long links. Generate unique codes and manage URLs.',
-    icon: <Link2 size={32} />,
-    color: 'from-purple-500 to-pink-500',
-    route: '/tools/url-shortener',
-    features: ['Instant Shortening', 'Unique Codes', 'URL Management', 'Copy Links']
-  },
-  {
     id: 'base64-converter',
     name: 'Base64 Converter',
     description: 'Encode and decode text to/from Base64. Support file upload and bidirectional conversion.',
@@ -430,15 +421,6 @@ const tools = [
     color: 'from-gray-500 to-slate-500',
     route: '/tools/lorem-ipsum',
     features: ['Multiple Languages', 'Text Styles', 'Character Count', 'Copy Options']
-  },
-  {
-    id: 'website-speed-checker',
-    name: 'Website Speed Checker',
-    description: 'Analyze website performance and loading speed. Get optimization recommendations.',
-    icon: <Zap size={32} />,
-    color: 'from-yellow-500 to-orange-500',
-    route: '/tools/website-speed-checker',
-    features: ['Performance Analysis', 'Speed Score', 'Optimization Tips', 'Mobile Testing']
   },
   {
     id: 'roi-calculator',

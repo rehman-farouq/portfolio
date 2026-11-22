@@ -2,13 +2,9 @@ import { Metadata } from 'next'
 import { ArrowLeft, Calendar, Clock, User, Tag, Code, Zap, Database, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "React Hooks Complete Guide 2026 | Rehman Farouq",
@@ -22,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://rehmanfarouq.site/blog/react-hooks-complete-guide",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('react-hooks-complete-guide').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -49,10 +45,11 @@ export const metadata: Metadata = {
 }
 
 export default function ReactHooksGuide() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('react-hooks-complete-guide').display
 
   return (
     <div className="min-h-screen">
+      <BlogJsonLd slug="react-hooks-complete-guide" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +81,7 @@ export default function ReactHooksGuide() {
               </span>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Calendar size={14} />
-                {yesterdayDate}
+                {postDate}
               </div>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Clock size={14} />

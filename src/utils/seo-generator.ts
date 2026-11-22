@@ -21,7 +21,7 @@ const TOOL_DESCRIPTIONS = {
     useCases: ['for writers', 'for developers', 'for content creators', 'for students', 'for SEO']
   },
   'password-generator': {
-    description: 'Generate secure passwords with customizable length, character types, and strength indicators. Military-grade encryption for maximum security.',
+    description: 'Generate secure passwords with customizable length, character types, and strength indicators. Uses your browser random number generator.',
     useCases: ['for accounts', 'for WiFi', 'for applications', 'for developers', 'for security']
   },
   'qr-generator': {
@@ -43,10 +43,6 @@ const TOOL_DESCRIPTIONS = {
   'time-converter': {
     description: 'Convert time between different zones and formats. Calculate time differences and world clock.',
     useCases: ['for business', 'for travel', 'for scheduling', 'for developers', 'for global teams']
-  },
-  'url-shortener': {
-    description: 'Create short URLs from long links with custom aliases. Track clicks and manage links.',
-    useCases: ['for marketing', 'for social media', 'for analytics', 'for branding', 'for sharing']
   },
   'base64-converter': {
     description: 'Encode and decode Base64 strings and files. Convert text, images, and documents to Base64.',
@@ -81,7 +77,7 @@ const TOOL_DESCRIPTIONS = {
     useCases: ['for data processing', 'for data analysis', 'for spreadsheets', 'for developers']
   },
   'email-validator': {
-    description: 'Validate email addresses for format correctness and disposable email detection. Check domain validity and MX records.',
+    description: 'Validate email addresses for format correctness and disposable email detection against a list of known disposable domains.',
     useCases: ['for developers', 'for marketing', 'for validation', 'for forms', 'for data quality']
   },
   'age-calculator': {
@@ -192,10 +188,6 @@ const TOOL_DESCRIPTIONS = {
     description: 'Compare app vs website development costs and benefits.',
     useCases: ['for planning', 'for decision making', 'for product strategy']
   },
-  'website-speed-checker': {
-    description: 'Analyze website performance and Core Web Vitals.',
-    useCases: ['for optimization', 'for performance', 'for SEO optimization']
-  },
   'roi-calculator': {
     description: 'Calculate return on investment with detailed analysis and projections.',
     useCases: ['for investment', 'for business', 'for finance', 'for planning']
@@ -257,7 +249,7 @@ const TOOL_KEYWORDS: Record<string, string[]> = {
     'memorable password generator',
     'bulk password generator',
     'one click password generator',
-    'military grade password generator',
+    'strong random password generator',
     'instant password generator'
   ],
   'qr-generator': [
@@ -369,28 +361,6 @@ const TOOL_KEYWORDS: Record<string, string[]> = {
     'time overlap finder',
     'best time zone converter',
     'live world time converter'
-  ],
-  'url-shortener': [
-    'free url shortener online',
-    'url shortener tool',
-    'link shortener free',
-    'shorten url online',
-    'best url shortener free',
-    'url shortener no signup',
-    'custom url shortener',
-    'url shortener with analytics',
-    'tiny url generator online',
-    'short link creator free',
-    'branded link shortener',
-    'url redirect tool',
-    'link tracker free',
-    'qr code url shortener',
-    'bulk url shortener',
-    'link management tool',
-    'url alias generator',
-    'click tracking url tool',
-    'short url maker online',
-    'compress url free'
   ],
   'base64-converter': [
     'base64 converter online free',
@@ -1184,28 +1154,6 @@ const TOOL_KEYWORDS: Record<string, string[]> = {
     'digital product strategy tool',
     'free app vs website analyzer'
   ],
-  'website-speed-checker': [
-    'website speed checker online free',
-    'website speed test tool',
-    'website performance analyzer',
-    'core web vitals checker',
-    'page loading speed test',
-    'google pagespeed checker',
-    'website load time tester',
-    'lcp checker online',
-    'cls checker online',
-    'fid checker online',
-    'website optimization checker',
-    'website performance score',
-    'seo speed analyzer',
-    'mobile speed checker',
-    'desktop speed checker',
-    'cdn performance tester',
-    'server response time checker',
-    'ttfb checker online',
-    'website benchmark tool',
-    'free site speed audit tool'
-  ],
   'roi-calculator': [
     'roi calculator online free',
     'return on investment calculator',
@@ -1310,7 +1258,7 @@ export function generateToolSEO(toolId: string, toolName: string): Metadata {
   const title = `Free ${toolName} Online | Rehman Farouq`
 
   // Description: tool summary only (trimmed to Google's ~160 char snippet length)
-  const rawDesc = `${toolInfo.description} Free, fast and private - runs in your browser.`
+  const rawDesc = `${toolInfo.description} Free and fast, no sign-up needed.`
   const description = rawDesc.length > 160 ? rawDesc.slice(0, 157).replace(/\s+\S*$/, '') + '...' : rawDesc
 
   return {
@@ -1373,11 +1321,15 @@ export function generateToolHeadings(toolName: string, toolDescription: string) 
 export function generateToolIntroduction(
   toolName: string,
   toolDescription: string,
-  useCases: string[]
+  _useCases: string[]
 ) {
-  return `Welcome to our free ${toolName.toLowerCase()} online tool! ${toolDescription} Whether you're ${useCases
-    .slice(0, 3)
-    .join(', ')} or just need a quick ${toolName.toLowerCase()}, our professional tool delivers accurate results instantly. No registration required, completely free to use.`
+  void _useCases
+  return `${toolDescription} This free ${toolName.toLowerCase()} needs no registration. Read the guide below the tool to understand how the result is calculated and where its limits are.`
+}
+
+export function getToolDescription(toolId: string, fallback: string): string {
+  const info = TOOL_DESCRIPTIONS[toolId as keyof typeof TOOL_DESCRIPTIONS]
+  return info ? info.description : fallback
 }
 
 // ─── Features List ────────────────────────────────────────────────────────────

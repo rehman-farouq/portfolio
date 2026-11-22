@@ -2,17 +2,13 @@ import { Metadata } from 'next'
 import { ArrowLeft, Calendar, Clock, User, Tag, Code, Zap, Server, Database } from 'lucide-react'
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "Next.js 15 Features 2026 | Rehman Farouq",
-  description: "Explore Next.js 15 features including server actions, partial prerendering, improved app router, enhanced performance, and new developer experience…",
+  description: "Explore Next.",
   keywords: "Next.js 15 features, server actions, partial prerendering, Next.js app router, Next.js performance, Next.js 2026, React Server Components, Next.js tutorial",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
@@ -22,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://rehmanfarouq.site/blog/nextjs-15-features",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('nextjs-15-features').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -49,10 +45,11 @@ export const metadata: Metadata = {
 }
 
 export default function Nextjs15Features() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('nextjs-15-features').display
 
   return (
     <div className="min-h-screen">
+      <BlogJsonLd slug="nextjs-15-features" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,7 +81,7 @@ export default function Nextjs15Features() {
               </span>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Calendar size={14} />
-                {yesterdayDate}
+                {postDate}
               </div>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Clock size={14} />

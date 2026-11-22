@@ -3,27 +3,23 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Heart, ExternalLink, Git
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "Next.js Portfolio Tutorial 2026 | Rehman Farouq",
-  description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.js 16, React, TypeScript, Tailwind CSS, Framer Motion…",
+  description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.",
   keywords: "Next.js portfolio tutorial 2026, build portfolio website Next.js, Next.js 16 tutorial, React portfolio tutorial, TypeScript portfolio, Tailwind CSS portfolio, Next.js developer portfolio, portfolio website tutorial, Next.js animations, Framer Motion portfolio, responsive portfolio design, Next.js contact form, portfolio deployment, web development tutorial, frontend portfolio, developer portfolio website",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Next.js Portfolio Tutorial 2026 | Rehman Farouq",
-    description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.js 16, React, TypeScript, Tailwind CSS, Framer Motion…",
+    description: "Complete Next.js portfolio tutorial 2026. Learn to build a stunning portfolio website with Next.",
     url: "https://rehmanfarouq.site/blog/nextjs-portfolio-tutorial",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('nextjs-portfolio-tutorial').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -50,9 +46,10 @@ export const metadata: Metadata = {
 }
 
 export default function NextjsPortfolioTutorialPage() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('nextjs-portfolio-tutorial').display
   return (
     <div className="min-h-screen flex flex-col">
+      <BlogJsonLd slug="nextjs-portfolio-tutorial" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function NextjsPortfolioTutorialPage() {
                 </span>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Calendar size={14} />
-                  {yesterdayDate}
+                  {postDate}
                 </div>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Clock size={14} />

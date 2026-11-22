@@ -3,17 +3,13 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Github, ExternalLink } from 'luc
 import Image from 'next/image'
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "Flutter vs Next.js for Web Development in 2026",
-  description: "Comprehensive comparison between Flutter and Next.js for web development. Learn key differences, use cases, performance, learning curve, job market, and when…",
+  description: "Comprehensive comparison between Flutter and Next.js for web development.",
   keywords: "Flutter vs Next.js, web development comparison 2026, Flutter web development, Next.js framework, cross-platform development, React vs Flutter, web frameworks comparison, frontend development, JavaScript vs Dart, modern web development",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
@@ -23,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://rehmanfarouq.site/blog/flutter-vs-nextjs",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('flutter-vs-nextjs').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -50,10 +46,11 @@ export const metadata: Metadata = {
 }
 
 export default function FlutterVsNextjs() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('flutter-vs-nextjs').display
 
   return (
     <div className="min-h-screen">
+      <BlogJsonLd slug="flutter-vs-nextjs" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function FlutterVsNextjs() {
               </span>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Calendar size={14} />
-                {yesterdayDate}
+                {postDate}
               </div>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Clock size={14} />

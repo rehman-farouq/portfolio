@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import fs from "node:fs";
 import path from "node:path";
+import { POSTS } from "@/utils/blog-meta";
 
 const BASE = "https://rehmanfarouq.site";
 const APP_DIR = path.join(process.cwd(), "src", "app");
@@ -48,7 +49,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...slugsIn("blog").map(({ slug, lastModified }) => ({
       url: `${BASE}/blog/${slug}`,
-      lastModified,
+      lastModified: POSTS[slug] ? new Date(POSTS[slug].date) : lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.7,
     })),

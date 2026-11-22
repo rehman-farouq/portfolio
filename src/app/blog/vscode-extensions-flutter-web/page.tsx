@@ -3,17 +3,13 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Download, Star, Zap, Code, Palet
 import Image from 'next/image'
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "Top 10 VS Code Extensions for Flutter & Web Developers 2026",
-  description: "Curated list of essential VS Code extensions for Flutter and web developers. Boost productivity with Dart, Flutter, React, Next.js, Prettier, ESLint, and…",
+  description: "Curated list of essential VS Code extensions for Flutter and web developers. Boost productivity with Dart, Flutter, React, Next.",
   keywords: "VS Code extensions, Flutter extensions, web development extensions, Dart VS Code, React extensions, Next.js extensions, Prettier, ESLint, developer tools, VS Code setup, productivity extensions, code editors, Flutter development, web development tools",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
@@ -23,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://rehmanfarouq.site/blog/vscode-extensions-flutter-web",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('vscode-extensions-flutter-web').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -50,10 +46,11 @@ export const metadata: Metadata = {
 }
 
 export default function VSCodeExtensionsGuide() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('vscode-extensions-flutter-web').display
 
   return (
     <div className="min-h-screen">
+      <BlogJsonLd slug="vscode-extensions-flutter-web" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function VSCodeExtensionsGuide() {
               </span>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Calendar size={14} />
-                {yesterdayDate}
+                {postDate}
               </div>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Clock size={14} />

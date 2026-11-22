@@ -3,34 +3,30 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Heart } from 'lucide-rea
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "Flutter Interview Questions 2026 | Rehman Farouq",
-  description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation…",
+  description: "Complete Flutter interview preparation guide 2026.",
   keywords: "Flutter interview questions 2026, Flutter developer interview, Flutter job preparation, Flutter interview questions and answers, Flutter widgets interview, Flutter state management interview, Flutter navigation interview, Flutter performance questions, Flutter architecture interview, mobile developer interview, Flutter developer jobs, Flutter technical interview, Flutter coding interview, Flutter interview tips, Flutter career guide",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Flutter Interview Questions 2026 | Rehman Farouq",
-    description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation…",
+    description: "Complete Flutter interview preparation guide 2026.",
     url: "https://rehmanfarouq.site/blog/flutter-interview-questions",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('flutter-interview-questions').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
     images: ["/opengraph-image"],
     card: "summary_large_image",
     title: "Flutter Interview Questions 2026 | Top 50 Questions with Answers",
-    description: "Complete Flutter interview preparation guide 2026. Top 50 Flutter interview questions and answers covering widgets, state management, navigation, and…",
+    description: "Complete Flutter interview preparation guide 2026.",
     creator: "@rehmanfarouq",
   },
   robots: {
@@ -50,9 +46,10 @@ export const metadata: Metadata = {
 }
 
 export default function FlutterInterviewQuestionsPage() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('flutter-interview-questions').display
   return (
     <div className="min-h-screen flex flex-col">
+      <BlogJsonLd slug="flutter-interview-questions" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function FlutterInterviewQuestionsPage() {
                 </span>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Calendar size={14} />
-                  {yesterdayDate}
+                  {postDate}
                 </div>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Clock size={14} />

@@ -3,17 +3,13 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Copy, Shield, Code, Bug, Externa
 import Image from 'next/image'
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "How to Build a Password Generator in React & Next.js",
-  description: "Step-by-step tutorial on building a secure password generator tool in React/Next.js. Learn to create length sliders, character options, strength indicators…",
+  description: "Step-by-step tutorial on building a secure password generator tool in React/Next.js.",
   keywords: "password generator React tutorial, Next.js password generator, React password generator tutorial, build password generator, React hooks tutorial, password strength indicator, clipboard API React, React security tools, Next.js tutorial 2026, React beginner tutorial",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
@@ -23,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://rehmanfarouq.site/blog/how-to-build-password-generator-react",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('how-to-build-password-generator-react').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -50,10 +46,11 @@ export const metadata: Metadata = {
 }
 
 export default function PasswordGeneratorTutorial() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('how-to-build-password-generator-react').display
 
   return (
     <div className="min-h-screen">
+      <BlogJsonLd slug="how-to-build-password-generator-react" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function PasswordGeneratorTutorial() {
               </span>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Calendar size={14} />
-                {yesterdayDate}
+                {postDate}
               </div>
               <div className="flex items-center gap-2 text-white/80 text-sm">
                 <Clock size={14} />

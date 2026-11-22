@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title:
     "Experience | Rehman Farouq – Flutter & Next.js Developer",
   description:
-    "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter…",
+    "Explore Rehman Farouq's comprehensive professional experience and career journey.",
   keywords:
     "professional experience, developer career history, full stack developer experience, Flutter developer jobs, React development experience, Next.js developer roles, software engineer career, web development experience, mobile app development career, programming professional background, tech career journey, developer work history, software development experience, IT professional experience",
   openGraph: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title:
       "Experience | Rehman Farouq – Flutter & Next.js Developer",
     description:
-      "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter…",
+      "Explore Rehman Farouq's comprehensive professional experience and career journey.",
     url: "https://rehmanfarouq.site/experience",
     type: "website",
     siteName: "Rehman Farouq Portfolio",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Professional Experience & Career History | Full Stack Developer",
     description:
-      "Explore Rehman Farouq's comprehensive professional experience and career journey. Discover work history, companies, roles, and achievements in Flutter…",
+      "Explore Rehman Farouq's comprehensive professional experience and career journey.",
   },
   robots: {
     index: true,

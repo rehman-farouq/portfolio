@@ -3,13 +3,9 @@ import { ArrowLeft, Calendar, Clock, User, Tag, Share2, Heart } from 'lucide-rea
 import Link from 'next/link'
 import Footer from '@/components/layout/Footer'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import { getPostDate } from '@/utils/blog-meta'
+import BlogJsonLd from '@/components/seo/BlogJsonLd'
 
-// Get yesterday's date
-const getYesterdayDate = () => {
-  const yesterday = new Date()
-  yesterday.setDate(yesterday.getDate() - 1)
-  return yesterday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
-}
 
 export const metadata: Metadata = {
   title: "Flutter State Management 2026 | Rehman Farouq",
@@ -23,7 +19,7 @@ export const metadata: Metadata = {
     url: "https://rehmanfarouq.site/blog/flutter-state-management",
     type: "article",
     siteName: "Rehman Farouq Blog",
-    publishedTime: new Date().toISOString(),
+    publishedTime: getPostDate('flutter-state-management').iso,
     authors: ["Rehman Farouq"],
   },
   twitter: {
@@ -50,9 +46,10 @@ export const metadata: Metadata = {
 }
 
 export default function FlutterStateManagementPage() {
-  const yesterdayDate = getYesterdayDate()
+  const postDate = getPostDate('flutter-state-management').display
   return (
     <div className="min-h-screen flex flex-col">
+      <BlogJsonLd slug="flutter-state-management" />
       {/* Navigation Header */}
       <nav className="site-subnav sticky top-0 z-50 animate-in slide-in-from-top duration-500">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,7 +82,7 @@ export default function FlutterStateManagementPage() {
                 </span>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Calendar size={14} />
-                  {yesterdayDate}
+                  {postDate}
                 </div>
                 <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <Clock size={14} />

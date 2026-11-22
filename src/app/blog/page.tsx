@@ -7,13 +7,13 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 
 export const metadata: Metadata = {
   title: "Blog | Flutter & Next.js Tutorials by Rehman Farouq",
-  description: "Comprehensive programming blog featuring Flutter tutorials, Next.js guides, React development tips, TypeScript best practices, web development articles…",
+  description: "Comprehensive programming blog featuring Flutter tutorials, Next.",
   keywords: "programming blog, Flutter tutorials, Next.js tutorials, React development, TypeScript guides, web development articles, mobile app development, JavaScript frameworks, coding tutorials, software engineering, development best practices, programming tips, Flutter state management, Next.js portfolio, React hooks, TypeScript patterns, frontend development, backend development, full stack development",
   authors: [{ name: "Rehman Farouq" }],
   openGraph: {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Blog | Flutter & Next.js Tutorials by Rehman Farouq",
-    description: "Comprehensive programming blog featuring Flutter tutorials, Next.js guides, React development tips, TypeScript best practices, web development articles…",
+    description: "Comprehensive programming blog featuring Flutter tutorials, Next.",
     url: "https://rehmanfarouq.site/blog",
     type: "website",
     siteName: "Rehman Farouq Blog",

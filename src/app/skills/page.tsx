@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title:
     "Skills & Tech Stack | Rehman Farouq",
   description:
-    "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, JavaScript, Node.js…",
+    "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, JavaScript, Node.",
   keywords:
     "technical skills, programming expertise, full stack developer skills, Flutter developer skills, React development expertise, Next.js proficiency, TypeScript skills, JavaScript programming, Node.js backend skills, Tailwind CSS expertise, Git version control, web development skills, mobile app development skills, programming languages, software development expertise, technical stack",
   openGraph: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title:
       "Skills & Tech Stack | Rehman Farouq",
     description:
-      "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, JavaScript, Node.js, and…",
+      "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, JavaScript, Node.",
     url: "https://rehmanfarouq.site/skills",
     type: "website",
     siteName: "Rehman Farouq Portfolio",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title:
       "Technical Skills & Expertise | Full Stack Developer | Flutter, React, Next.js",
     description:
-      "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.js, TypeScript, and modern web development…",
+      "Explore Rehman Farouq's comprehensive technical skills and programming expertise. Master of Flutter, React, Next.",
   },
   robots: {
     index: true,

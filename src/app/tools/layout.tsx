@@ -3,14 +3,14 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Free Online Developer Tools & Calculators | Rehman Farouq",
   description:
-    "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, password generator, unit converter, and…",
+    "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, password generator, unit converter.",
   keywords:
     "developer tools, free online tools, JSON formatter, Base64 converter, color converter, QR code generator, password generator, unit converter, online utilities, web tools, programmer tools, code formatter, developer utilities, HTML encoder, CSS minifier, JSON validator, code beautifier, online tools, useful tools",
   openGraph: {
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Rehman Farouq – Flutter & Next.js Developer" }],
     title: "Free Online Developer Tools & Calculators | Rehman Farouq",
     description:
-      "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, password generator, and more useful online…",
+      "Collection of free developer tools including JSON formatter, Base64 converter, color converter, QR code generator, password generator.",
     url: "https://rehmanfarouq.site/tools",
     type: "website",
     siteName: "Rehman Farouq - Developer Tools",
