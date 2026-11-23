@@ -54,15 +54,20 @@ function parse(file: string): Post | null {
   }
 }
 
-/** All generated posts, newest first. Read at build time only. */
+let cache: Post[] | null = null
+
+/** All generated posts, newest first. Read at build time only (cached per build process). */
 export function getAllPosts(): Post[] {
+  if (cache && process.env.NODE_ENV === 'production') return cache
   if (!fs.existsSync(POSTS_DIR)) return []
-  return fs
+  const posts = fs
     .readdirSync(POSTS_DIR)
     .filter((f) => f.endsWith('.md'))
     .map(parse)
     .filter((p): p is Post => p !== null)
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+  cache = posts
+  return posts
 }
 
 export function getPost(slug: string): Post | undefined {
