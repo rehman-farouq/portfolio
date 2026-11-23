@@ -23,12 +23,14 @@ const TOOL_CONTENT = path.join(ROOT, 'src', 'utils', 'tool-content.ts')
 const TOPICS_FILE = path.join(ROOT, 'scripts', 'auto-blog', 'topics.json')
 
 const GEMINI_BASE = process.env.GEMINI_BASE_URL || 'https://generativelanguage.googleapis.com'
-// Model names change often. Put the current one in the GEMINI_MODEL repo variable; these are fallbacks.
-const MODELS = [
+// Model names change often. Put the one you want in the GEMINI_MODEL repo variable; the rest are fallbacks.
+const MODELS = [...new Set([
   process.env.GEMINI_MODEL,
-  'gemini-3.8-flash',
   'gemini-3.5-flash-lite',
-].filter(Boolean)
+  'gemini-3.8-flash',
+].filter(Boolean))]
+// A model that keeps failing (503 / timeout) is skipped for the rest of the run.
+const downModels = new Set()
 
 const CATEGORIES = ['Tools', 'Guide', 'Tutorial', 'News', 'Comparison']
 
@@ -201,7 +203,7 @@ function pickTool(existing, state) {
     ].join('\n'),
     category: 'Tools',
     keyword: `${t.name.toLowerCase()} online free`,
-    minWords: 750,
+    minWords: 600,
   }
 }
 
@@ -223,7 +225,7 @@ function pickEvergreen(existing, state) {
     ].join('\n'),
     category: t.category,
     keyword: t.keyword,
-    minWords: 900,
+    minWords: 700,
   }
 }
 
@@ -322,7 +324,7 @@ async function pickTrending(existing, state) {
       ].join('\n'),
       category: 'News',
       keyword: c.title,
-      minWords: 700,
+      minWords: 550,
     }
   }
   return null
@@ -364,7 +366,7 @@ OUTPUT RULES
 - Dev topics need short, correct, minimal code examples in fenced blocks with a language tag. Never include code you are unsure compiles.
 - Finish with a "## Key takeaways" section of 3-5 bullets.
 - Do NOT write an FAQ section in the body; put 3-4 questions in "faqs" instead (real questions a searcher would ask, with direct 1-3 sentence answers).
-- Length: at least ${job.minWords} words in the body, around ${Math.round(job.minWords * 1.4)} is ideal. No filler.
+- Length: the body MUST be at least ${Math.round(job.minWords * 1.3)} words; aim for about ${Math.round(job.minWords * 1.6)}. Cover each section in real depth with concrete examples. No filler.
 - Style: clear, direct, practical. No hype, no clickbait, no emojis, no phrases like "in today's fast-paced world", "game-changer", "dive in", "let's explore", "in conclusion".
 - HONESTY: never invent personal stories, clients, projects, benchmarks, statistics, quotes, prices or version numbers. If you are not sure of a fact, say it in general terms or leave it out. Do not claim you tested anything.
 - No images, no raw HTML, no links to external websites (the site adds a source line itself when needed).
@@ -384,7 +386,8 @@ async function callGemini(prompt) {
   }
   let lastErr = ''
   for (const model of MODELS) {
-    for (let attempt = 1; attempt <= 3; attempt++) {
+    if (downModels.has(model)) continue
+    for (let attempt = 1; attempt <= 2; attempt++) {
       try {
         const res = await fetch(`${GEMINI_BASE}/v1beta/models/${model}:generateContent`, {
           method: 'POST',
@@ -398,12 +401,12 @@ async function callGemini(prompt) {
               responseSchema: RESPONSE_SCHEMA,
             },
           }),
-          signal: AbortSignal.timeout(100000),
+          signal: AbortSignal.timeout(90000),
         })
         if (res.status === 429 || res.status >= 500) {
           lastErr = `${model}: HTTP ${res.status}`
-          log(lastErr, attempt < 3 ? '- retrying in 20s' : '- next model')
-          if (attempt < 3) await sleep(20000)
+          log(lastErr, attempt < 2 ? '- retrying in 20s' : '- next model')
+          if (attempt < 2) await sleep(20000)
           continue
         }
         if (!res.ok) {
@@ -421,10 +424,11 @@ async function callGemini(prompt) {
         return { json: JSON.parse(text), model }
       } catch (e) {
         lastErr = `${model}: ${e.message}`
-        log(lastErr, attempt < 3 ? '- retrying in 15s' : '- next model')
-        if (attempt < 3) await sleep(15000)
+        log(lastErr, attempt < 2 ? '- retrying in 15s' : '- next model')
+        if (attempt < 2) await sleep(15000)
       }
     }
+    downModels.add(model) // failed every attempt: don't waste more time on it this run
   }
   throw new Error(`All Gemini models failed. Last error: ${lastErr}`)
 }
