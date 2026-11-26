@@ -1,5 +1,7 @@
 {
-  "usedTools": [],
+  "usedTools": [
+    "calorie-calculator"
+  ],
   "usedTopics": [
     "How to structure a Flutter app with MVVM and Clean Architecture"
   ],
@@ -7,6 +9,7 @@
     "topic:How to structure a Flutter app with MVVM and Clean Architecture",
     "hn:50616933",
     "hn:50627340",
-    "hn:50637890"
+    "hn:50637890",
+    "tool:calorie-calculator"
   ]
 }
